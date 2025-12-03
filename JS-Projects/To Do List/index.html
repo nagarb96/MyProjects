@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="todo-list">
+        <h2>My TO DO List</h2>
+        <input type="text" id="taskInput" placeholder="Enter task......">
+        <button id="addBtn">Add</button>
+    </div>
+    <ul id="taskList">
+        <!-- <li>Task Text<button class="deleteBtn">Delete</button></li> -->
+
+    </ul>
+
+    <script>
+        let taskInput = document.getElementById("taskInput");
+        let addBtn = document.getElementById("addBtn");
+        let taskList = document.getElementById("taskList");
+        
+
+        addBtn.addEventListener("click", () => {
+            let text = taskInput.value;
+            let li = document.createElement("li");
+            li.textContent = text;
+            taskList.appendChild(li);
+            taskInput.value = "";
+            
+            let deleteBtn = document.createElement("button");
+            deleteBtn.textContent="Delete";
+            li.appendChild(deleteBtn);
+            // deleteBtn.addEventListener("click", () => {
+            //     deleteBtn.parentElement.remove();
+                deleteBtn.addEventListener("click", (e) => {
+                    e.currentTarget.parentElement.remove();
+                });
+            let saved = localStorage.getItem("task");
+            let task = JSON.parse(saved) || [];
+            
+            task.push(text);
+            localStorage.setItem("task", JSON.stringify(task));
+            });
+        
+        
+
+
+    </script>
+
+</body>
+</html>

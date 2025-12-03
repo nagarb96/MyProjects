@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+            font-family: 'Courier New', Courier, monospace;
+            color: #fff;
+        }
+        .age-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px 40px;
+            border-radius: 15px;
+            text-align: center;
+            width: 320px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px #000;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #ageResult {
+            margin-top: 15px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="age-box">
+        <h2>Age Calculator</h2>
+
+        <label>Enter your Date of Birth:</label>
+        <input type="date" id="dob">
+
+        <button id="calcAgeBtn">Calculate Age</button>
+
+        <h3 id="ageResult"></h3>
+    </div>
+    <script>
+        let dobInput = document.getElementById("dob");
+        let calcAgeBtn = document.getElementById("calcAgeBtn");
+        let ageResult = document.getElementById("ageResult");
+
+        calcAgeBtn.addEventListener("click", () => {
+            
+            let dobValue = new Date(dobInput.value);
+            let today = new Date();
+
+            let years = today.getFullYear() - dobValue.getFullYear();
+            let months = today.getMonth() - dobValue.getMonth();
+            let days = today.getDay() - dobValue.getDay();
+
+            if( months < 0) {
+                years--;
+                months += 12;
+            }
+            if (days < 0) {
+                months--;
+                let previousMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                days += previousMonth.getDate();
+            }
+            ageResult.innerText = `Your Age: ${years} Years, ${months} Months, ${days} Days`;
+
+        });
+    </script>
+</body>
+</html>

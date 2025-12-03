@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .containerr {
+      display:flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+      
+    }
+  </style>
+<body>
+  <div class="containerr">
+  <!-- Old Way Script -->
+  <p class="msg2">Hello JavaScript</p>
+  <button onclick="showMessage()">Click Me</button>
+  <p id="msg"></p>
+
+  <script>
+    function showMessage() {
+      document.getElementById("msg").innerText = "Button clicked!";
+    }
+  </script>
+
+<!-- Modern Script -->
+<button id="btn">Click Here</button>
+<p id="result"></p>
+
+<script>
+    document.getElementById("btn").addEventListener("click", function() {
+    document.getElementById("result").innerText = "You clicked!";
+  });
+</script>
+
+<button id="btn1">Click</button>
+<p class="msg2"></p>
+
+<script>
+  document.getElementById("btn1").addEventListener("click", function(){
+  // document.getElementById('msg2').innerHTML="Dub gya Dub gya!";
+document.querySelectorAll(".msg2").forEach(item => {
+    item.innerText = "Dub gya Dub gya!";
+    });
+  });
+</script>
+<div class="container" id="removeMe" style="width: 300px; height: 20px;background-color: aqua;"></div>
+ <script>
+  let box = document.querySelector(".container");
+  box.addEventListener("click", function(){
+      let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    box.style.backgroundColor = randomColor;
+  });
+ </script>
+
+ <button id="addBtn">Add New</button>
+ <script>
+  document.getElementById("addBtn").addEventListener("click", function(){
+    let p = document.createElement("p");
+    p.innerText = "This is new para!";
+    document.body.appendChild(p);
+  })
+ </script>
+ <button id="removeBtn">Remove para</button>
+ <script>
+let para = document.getElementById("removeMe");
+let btn = document.getElementById("removeBtn");
+
+btn = addEventListener("dblclick", function(){
+  para.remove();
+});
+ </script>
+
+
+<button id="btn3">Tap</button>
+<script>
+  document.getElementById("btn3").addEventListener("click", function(){
+    console.log(event);         // full event info
+    console.log(event.target);  // jis element par click hua
+  });
+</script>
+
+
+<div id="box1" style="width:200px;height:20px;background:lightblue;"></div>
+
+<script>
+  let box1 = document.getElementById("box1");
+
+  box1.addEventListener("mouseover", function(){
+    box1.style.background = "red";
+    box1.style.width = "100px"
+    box1.style.transition = "width 2s, height 4s, background-color 3s";
+    
+  });
+  box1.addEventListener("mouseout", function(){
+    box1.style.background = "yellow";
+    box1.style.width = "200px"
+  });
+  
+</script>
+
+<input id="inp" placeholder="Type something...">
+
+<script>
+  document.getElementById("inp").addEventListener("keydown", function(event){
+    console.log("You pressed: " + event.key);
+  });
+</script>
+
+<button id="textChnage">Change</button>
+<script>
+  document.getElementById("textChnage").addEventListener("click", function(){
+    this.innerText = "Ho gya!";
+  });
+  document.getElementById("textChnage").addEventListener("dblclick", function(){
+    this.innerText = "Dubara Ho gya!";
+  });
+</script>
+
+<button id="textChnage1">Change</button>
+<script>
+  document.getElementById("textChnage1").addEventListener("click", function(){
+    this.innerText = this.innerText === "Ho gya!" ? "Dubara Ho gya!" : "Ho gya!";
+  });
+</script>
+
+
+<button id="timeSet">Change Acording to time seconds</button>
+<script>
+  document.getElementById("timeSet").addEventListener("click", function(){
+    const old = this.innerText;
+    this.innerText = "Ho gya!";
+    setTimeout(() => this.innerText = old,2000);
+  });
+</script>
+
+<div id="box41" style="width:400px;height:20px;background-color:#ffffff;border:1px solid black;"></div>
+
+<script>
+  const box41 = document.getElementById("box41");
+
+  box41.addEventListener("mouseover", function() {
+    const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    box41.style.backgroundColor = randomColor;
+  });
+
+  box41.addEventListener("mouseout", function() {
+    box41.style.backgroundColor = "#ffffff";
+  });
+</script>
+
+<div id="dabba" style="width: 300px;height: 20px; background-color: #df4a44;">
+
+  <script>
+    const dabba = document.getElementById("dabba");
+    dabba.addEventListener("mouseover", function(){
+      const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      dabba.style.backgroundColor = randomColor;
+    });
+  </script>
+</div>
+
+<input id="username" placeholder="Type here">
+<button id="saveBtn">save</button>
+<button id="showBtn">show</button>
+
+<script>
+document.getElementById("saveBtn").addEventListener("click", function(){
+let name = document.getElementById("username").value;
+localStorage.setItem("username", name);
+});
+document.getElementById("showBtn").addEventListener("click", () => {
+  let saved = localStorage.getItem("username");
+  alert("Saved name: " + saved);
+});
+</script>
+
+
+<button id="btn12">Click me</button>
+<p id="msg1"></p>
+
+<script>
+  let btn12 = document.getElementById("btn12");
+  let msg1 = document.getElementById("msg1");
+
+btn12.addEventListener("click" ,function() {
+  msg1.innerHTML = "Button CLicked!";
+});
+</script>
+
+<p id="msg3">Hello!</p>
+<button id="login">Login</button>
+<script>
+
+  let login = document.getElementById("login");
+  let t = document.getElementById("msg3");
+
+  login.addEventListener("click" , () => {
+    t.style.fontSize = "25px";
+    t.innerText = "Hi! Brijesh";
+    login.innerText = "Logout";
+  });
+
+</script>
+
+<div id="box12"></div>
+<script>
+let box12 = document.getElementById("box12");
+
+let p = document.createElement("p");
+p.innerText = "I an New";
+box12.appendChild(p);
+</script>
+
+
+<button id="add">Add Text</button>
+<div id="container"></div>
+
+<script>
+  let add = document.getElementById("add");
+  let box121 = document.getElementById("container");
+
+  add.addEventListener("click", () => {
+    let p = document.createElement("p");
+    p.innerText = "I am new para";
+    box121.appendChild(p);
+  });
+</script>
+
+
+
+</div>
+</body>
+</html>
+
+
+

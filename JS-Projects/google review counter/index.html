@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Reviews</title>
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 300px;
+            gap: 10px;
+            background: #c9c8c8;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        form input {
+            width: 90%;
+            height: 30px;
+            border-radius: 8px;
+            border: none;
+            padding: 8px 12px;
+
+        }
+        form button {
+            width: 150px;
+            padding: 10px;
+            background: #44a1f8;
+            color: #ffffff;
+            border: none;
+
+        }
+
+    </style>
+</head>
+<body>
+    <form action="">
+    <input id="old_reviews" placeholder="Total reviews now" type="number">
+<input id="current_rating" placeholder="Current rating" step="0.1">
+<input id="desired_rating" placeholder="Desired rating" step="0.1">
+
+<button onclick="calculateReviewsNeeded()" type="button">CALCULATE</button>
+</form>
+<p id="result"></p>
+
+
+<script>
+function calculateReviewsNeeded() {
+    let oldReviews = parseFloat(document.getElementById("old_reviews").value);
+    let currentRating = parseFloat(document.getElementById("current_rating").value);
+    let desiredRating = parseFloat(document.getElementById("desired_rating").value);
+
+    if (desiredRating <= currentRating) {
+        document.getElementById("result").innerHTML = 
+            "Desired rating must be greater than current rating!";
+        return;
+    }
+
+    if (desiredRating >= 5) {
+        document.getElementById("result").innerHTML = 
+            "Desired rating cannot be 5.0 — maximum allowed is 4.9";
+        return;
+    }
+
+    // formula
+    let X = 
+        (desiredRating * oldReviews - currentRating * oldReviews) / (5 - desiredRating);
+
+    X = Math.ceil(X); // round up reviews
+
+    document.getElementById("result").innerHTML = 
+        "⭐ Required 5-star reviews: <b>" + X + "</b>";
+}
+</script>
+
+</body>
+</html>

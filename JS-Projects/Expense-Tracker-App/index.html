@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker App</title>
+</head>
+<style>
+    body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+}
+
+.expense-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px 40px;
+    border-radius: 15px;
+    width: 350px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px #000;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #28a745;
+    color: white;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #218838;
+}
+
+ul {
+    text-align: left;
+    margin-top: 20px;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.deleteBtn {
+    padding: 5px 10px;
+    background: #dc3545;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deleteBtn:hover {
+    background: #c82333;
+}
+
+#totalAmount {
+    color: #00ff88;
+}
+
+</style>
+<body>
+    <div class="expense-box">
+        <h2>Expense Tracker</h2>
+
+        <input type="text" id="expenseName" placeholder="Expense Name ( e.g. Food)">
+        <input type="number" id="expenseAmount" placeholder="Amount ($)">
+
+        <button id="addExpenseBtn">Add Expense</button>
+
+        <ul id="expenseList"></ul>
+
+        <h3>Total :Rs <span id="totalAmount">0</span></h3>
+        
+    </div>
+
+    <script>
+        let expenseNameInput = document.getElementById("expenseName");
+        let expenseAmountInput = document.getElementById("expenseAmount");
+        let addExpenseBtn = document.getElementById("addExpenseBtn");
+        let expenseList = document.getElementById("expenseList");
+        let totalAmount = document.getElementById("totalAmount");
+
+        addExpenseBtn.addEventListener("click", () => {
+            // console.log("Button Clicked"); Just checked button is clicked or not
+            let nameValue = expenseNameInput.value;
+            let amountValue = expenseAmountInput.value;
+
+            let li = document.createElement("li");
+            li.innerHTML = `
+            ${nameValue} - Rs${amountValue}
+            <button class="deleteBtn">Delete</button>
+            `;           
+            expenseList.appendChild(li);
+            expenseNameInput.value = "";
+            expenseAmountInput.value = "";
+            
+            let deleteBtn = li.querySelector("deleteBtn");
+            deleteBtn.addEventListener("click" , () => {
+                li.remove();
+            });
+            let total = 0;
+        total += amountValue;
+        totalAmount.innerText = total;
+
+        li.setAttribute("datd-amount", amountValue);
+
+        deleteBtn.addEventListener("click" , () => {
+                let deleteAmount = Number(li.getAttribute("data-amount"));
+                total -= deleteAmount;
+                totalAmount.innerText = total;
+                
+                li.remove();
+            });
+            
+        });
+        
+
+    </script>
+</body>
+</h

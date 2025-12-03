@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+            font-family: 'Courier New', Courier, monospace;
+            color: #ffffff;
+        }
+        .tip-box {
+            background: rgba(255, 255, 255, 0.1) ;
+            padding: 25px 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px #000;
+            border-radius: 15px;
+        }
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #28a754;
+            color: #fff;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #218838;
+        }
+        #result {
+            margin-top: 35px;
+            font-size: 22px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="tip-box">
+        <h2>Tip Calculator</h2>
+        <input type="number" id="bill" placeholder="Enter your bill">
+        <input type="number" id="tip" placeholder="Enter you tip Percentage">
+        <button id="calculateBtn">Calculate</button>
+
+        <h3 id="result"></h3>
+    </div>
+    <script>
+        let = billInput = document.getElementById("bill");
+        let = tipInput = document.getElementById("tip");
+        let = calculateBtn = document.getElementById("calculateBtn");
+        let = result = document.getElementById("result");
+        
+        calculateBtn.addEventListener("click", () => {
+            let bill = Number(billInput.value);
+            let tip = Number(tipInput.value);
+
+            let tipAmount = (bill * tip) / 100;
+            let totalAmount = bill + tipAmount;
+            console.log(`Your Bill is amount is: ${bill}.`);
+            console.log(`Your tip % amount is: ${tip}.`);
+            console.log(`Tip Percent is : ${tipAmount}.`);
+            console.log(`Total Amount is : ${totalAmount}.`);
+
+            if( billInput.value === "" || tipInput.value === "") {
+                result.innerText = "Please enter both values."
+                return;
+            }
+            else if (bill <= 0 || tip < 0 ){
+                result.innerText = "Enter valid positive numbers";
+                return;
+            }            
+            else{
+            result.innerText = `Tip: ₹${tipAmount.toFixed(2)} | Total: ₹${totalAmount.toFixed(2)}`;
+                }
+
+        });
+    </script>
+</body>
+</html>

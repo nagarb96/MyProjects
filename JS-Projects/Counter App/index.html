@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 300px;
+            background-color: aliceblue;
+            gap: 30px;
+            padding: 50px;
+            border: 1px solid #000000;
+            border-radius: 10px;
+        }
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+        .btn  button{
+            background: #000000;
+            color: #fff;
+            width: 100px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+    <h2 id="count">0</h2>
+    
+    <div class="btn">
+    <button id="inc">+</button>
+    <button id="dec">-</button>
+    <button id="reset">Reset</button>
+    </div>
+    </div>
+    <script>
+        let count = document.getElementById("count");
+        let incBtn = document.getElementById("inc");
+        let decBtn = document.getElementById("dec");
+        let resetBtn = document.getElementById("reset");
+
+        let value = 0;
+        incBtn.addEventListener("click" , () => {
+            value++;
+            count.innerText = value;
+        });
+        decBtn.addEventListener("click", () => {
+            value--;
+            count.innerText = value;
+        });
+        resetBtn.addEventListener("click" , () => {
+            value = 0;
+            count.innerText = value;
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container {
+    width: 260px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #1b1b1b;
+}
+input {
+    width: 90%;
+    height: 40px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: right;
+    padding-right: 10px;
+    background-color: #5ead03;
+    color: #333;
+}
+button {
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: rgb(173, 173, 173);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="display" readonly>
+        <br>
+        <button>7</button><button>8</button><button>9</button><button>/</button><br>
+        <button>4</button><button>5</button><button>6</button><button>*</button><br>
+        <button>1</button><button>2</button><button>3</button><button>-</button><br>
+        <button>0</button><button>.</button><button>=</button><button>+</button><br>
+        <button id="clear">C</button>
+    </div>
+    <script>
+        let display = document.getElementById("display");
+        let buttons = document.querySelectorAll("button");
+
+        let currentInput = "";
+
+        buttons.forEach(button => {
+            button.addEventListener("click", (e) => {
+                let value = e.target.textContent;
+                if (value === "C"){
+                    currentInput = "";
+                }
+                else if ( value === "=") {
+                    try {
+                        currentInput = eval(currentInput);
+                    }
+                    catch {
+                        currentInput = "error";
+                    }
+                }
+                else {
+                    currentInput += value;
+                }
+                display.value = currentInput;
+            });
+        });
+        
+    </script>
+</body>
+</html
