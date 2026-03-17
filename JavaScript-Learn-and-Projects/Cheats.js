@@ -892,6 +892,27 @@ console.log(numbers);
 console.log(numbers.includes(20));
 
 
+let numbers = [3,8,12,5,7,20];      // Lets Find Even Number in Array.
+let EvenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(EvenNumbers)
+
+for(let i=0;i<numbers.length;i++){
+  if(numbers[i] % 2 === 0){
+    console.log(numbers[i])
+  }
+}
 
 
 
+let numbers = [3,8,12,5,7,20];   // Lets try to double numbers
+let Double = numbers.map(num => num *2);
+console.log(Double);
+
+for(let i=0;i<numbers.length;i++){
+  let result = numbers[i] *2    
+  console.log(result);
+  }
+
+
+let numbers = [5,12,8,20,3,15];
+let result = filter
