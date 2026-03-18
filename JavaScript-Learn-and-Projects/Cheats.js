@@ -913,6 +913,48 @@ for(let i=0;i<numbers.length;i++){
   console.log(result);
   }
 
+let numbers = [2,3,4,5];   // Calculate the square of numbers.
+let squareNumber = [];          // First Use Old Method.
+for(let i = 0; i < numbers.length;i++){
+  squareNumber.push(numbers[i] * numbers[i]);
+}
+console.log(squareNumber);
 
-let numbers = [5,12,8,20,3,15];
-let result = filter
+let squareNumbers = numbers.map(num => num * num);        //New ES6 Script Method. Means New Method.
+console.log(squareNumbers);
+
+
+
+let numbers = [1,2,3,4,5,6];                                // Find Odd Numbers
+for(let i=0;i<numbers.length;i++){
+  if(numbers[i] % 2 !== 0){
+    console.log(numbers[i]);
+  }
+}
+
+let  oddNumbers = numbers.filter(num => num % 2 !== 0);    // Find odd numbers.
+console.log(oddNumbers);
+
+
+let names = ["Rahul","Amit","Neha"];
+let nameWithTitle = names.map(name => "Mr. " + name);       // Add Title in every name 
+console.log(nameWithTitle);
+
+
+let names = ["Rahul","Amit","Neha"];                        // Add Title in every name using old method.
+let nameWithTitles = [];
+for(let i = 0; i < names.length; i++){
+    nameWithTitles = "Mr. " + names[i];
+    console.log(nameWithTitles);
+}
+
+
+let products = [                                        // Extract only Prices 
+  {name:"Mobile", price:10000},
+  {name:"Laptop", price:50000},
+  {name:"Tablet", price:20000}
+];
+
+let productsPrices = products.map(item => item.price);
+console.log(productsPrices);
+
