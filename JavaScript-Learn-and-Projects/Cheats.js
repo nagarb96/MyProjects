@@ -958,3 +958,69 @@ let products = [                                        // Extract only Prices
 let productsPrices = products.map(item => item.price);
 console.log(productsPrices);
 
+let nums = [5,10,15];                                   // lets try to use reduce(). 
+let sum = nums.reduce((acc,add) => acc + add,0);
+console.log(sum);
+
+
+let nums = [5,12,8,20,3,15];                            // Lets try to count.
+let count = nums.reduce((acc,curr) => {
+  if(curr > 10){
+    return acc + 1;
+  }
+  return acc;
+},0);
+console.log(count);
+
+
+let nums = [5,12,8,20,3,15];                            // Lets try to count. new method and short
+let count = nums.reduce((acc,curr) => curr > 10 ? acc + 1:acc,0);
+console.log(count);
+
+
+let users = [
+  {name:"Rahul", age:22},
+  {name:"Amit", age:17},
+  {name:"Neha", age:25}
+];
+let countAdultUsers = users.reduce((acc,curr) => curr.age >= 18 ? acc + 1:acc,0);
+console.log(countAdultUsers);
+
+
+let cart = [
+  {name:"Mobile", price:10000, qty:2},
+  {name:"Laptop", price:50000, qty:1},
+  {name:"Tablet", price:20000, qty:3}
+];
+
+let cartItemQty = cart.reduce((acc,curr) => acc + curr.qty,0 );
+console.log(cartItemQty);
+
+
+let cart = [
+  {name:"Mobile", price:10000, qty:2},
+  {name:"Laptop", price:50000, qty:1},
+  {name:"Tablet", price:20000, qty:3}
+];
+let total = 0;
+for(let i=0; i < cart.length;i++) {
+total = total + cart[i].qty;
+}
+console.log(total);
+
+
+let cart = [
+  {name:"Mobile", price:10000, qty:2},
+  {name:"Laptop", price:50000, qty:1},
+  {name:"Tablet", price:20000, qty:3}
+];
+let total = 0;
+for(let i=0; i < cart.length;i++) {
+  total = total + cart[i].price * cart[i].qty;
+}
+console.log(total);
+
+let gtotal = cart.reduce((acc,curr) => acc + curr.price * curr.qty,0 );
+console.log(gtotal);
+
+
