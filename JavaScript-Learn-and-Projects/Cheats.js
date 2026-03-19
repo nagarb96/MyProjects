@@ -1024,3 +1024,92 @@ let gtotal = cart.reduce((acc,curr) => acc + curr.price * curr.qty,0 );
 console.log(gtotal);
 
 
+// Practice of the function.
+
+function greet(){
+  console.log("Hello, Brijesh");
+}
+
+greet();
+
+function hey(name){
+  console.log("Hello, " + name);
+}
+hey("Brijesh");
+
+
+function add(num1,num2){
+  return num1 + num2;
+}
+
+let total = add(23,45);
+console.log(total);
+  
+
+function substraction(a,b){
+  return a-b;
+}
+let substtract = substraction(10,7);
+console.log(substtract);
+
+let substtract = (a,b) => a-b;
+
+console.log(substtract(10,5));
+
+
+function checkNumber(a){
+  if( a >= 0){
+    return "Positive";
+  }
+  else {
+    return "Negative";
+  }
+}
+console.log(checkNumber(-15));
+
+let checkNumbers = (a) => a >= 0 ? "Positive" : "Negative";
+console.log(checkNumbers(-4));
+
+function square(num){
+  return num * num;
+}
+
+let sqaure = (num) => num * num;
+
+
+
+function greet(name){
+  return "Hello " + name;
+}
+
+function processUser(callback){
+  let result = callback("Brijesh");
+  console.log(result);
+}
+
+processUser(greet);
+
+
+function add(a,b){
+  return a+b;
+}
+console.log(add(5,8));
+
+
+let isEven = (a) => a % 2 === 0;
+console.log(isEven(44));
+
+
+
+function reverse(str){
+let result = "";
+for(let i = str.length - 1; i >= 0;i--){
+  result = result + str[i];
+}
+return result;
+}
+console.log(reverse("hello"));
+
+
+let flip = (str) => str.split("").reverse().join("");
+console.log(flip("hellooo"));
