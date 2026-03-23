@@ -1113,3 +1113,61 @@ console.log(reverse("hello"));
 
 let flip = (str) => str.split("").reverse().join("");
 console.log(flip("hellooo"));
+
+
+let flipText = (str) => str.split("").reverse().join("");
+console.log(flipText("Hello"));
+
+
+function substract(a, b){
+  return a- b;
+}
+
+function calculate(a, b,operation){
+  return operation(a , b);
+}
+console.log(calculate(5,4, substract));
+
+function fullName(name){
+  return "Hello " + name;
+}
+function fullNameWithGreet(fName){
+  return fName("Brijesh Nagar");
+}
+console.log(fullNameWithGreet(fullName));
+
+
+
+function test(x) {
+  return "value : " + x;
+}
+function run(fn){
+  return fn(100);
+}
+console.log(run(test));
+
+
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Delayed");
+}, 3000);
+
+console.log("End");
+
+let add = (a,b) => a+b;
+console.log(add(5,7));
+
+let processUser = (callback) => callback("Brijesh");
+console.log(processUser(name => "Hello " + name));
+
+function fetchData(callback) {
+  setTimeout(() => {
+    callback("Data Loaded......");
+  }, 2000);
+}
+fetchData(function(data){
+  console.log(data);
+});
+
+
