@@ -232,6 +232,49 @@ box12.appendChild(p);
   });
 </script>
 
+<!-- Here i am start to DOM using upside is before just ussing before learn now this is for learning purpose. -->
+<h1 id="title">Hello</h1>
+<h2>Hii !</h2>
+<script>
+  // only just change content using id of the html tag. select id on script using getElementById
+  let heading = document.getElementById("title"); 
+  heading.textContent = "Hello Brijesh";
+
+  // Now using querySelector. uses of this ("#title", ".title", "h1"). Mention id to use #, if class to use . and if using to select tag name use ("h1", "p"and more ).
+  let heading1 = document.querySelector("h2");
+  heading1.textContent = "Bye!";
+  heading1.style.color = "#A8240A";
+  heading1.style.fontFamily = "Charcoal,sans-serif";
+
+</script>
+
+<button id="btn21">Click Me</button>
+
+<script>
+  let Button = document.getElementById("btn21");
+  Button.addEventListener("click", () => {
+    console.log("Button clicked");
+  })
+</script>
+
+
+<h1 id="title1">Hello</h1>
+<button id="btn22">Change Text</button>
+<script>
+  let Button1 = document.getElementById("btn22");
+  let title1 = document.getElementById("title1");
+
+  Button1.addEventListener("click", () => {
+    title1.textContent = "Hello, Brijesh!";
+  })
+</script>
+
+
+
+
+
+
+
 
 
 </div>
