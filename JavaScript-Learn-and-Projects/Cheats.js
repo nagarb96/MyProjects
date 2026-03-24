@@ -1171,3 +1171,14 @@ fetchData(function(data){
 });
 
 
+let promise = new Promise((resolve, reject) => {
+  let success = true;
+  if(success){
+    resolve("Success");
+  }
+  else {
+    reject("failed");
+  }
+});
+
+// now Practice DOM topic start so i am create index file to practice DOM.
