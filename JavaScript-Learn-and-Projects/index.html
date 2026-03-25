@@ -269,10 +269,38 @@ box12.appendChild(p);
   })
 </script>
 
+<p>One</p>
+<p>Two</p>
+<p>Three</p>
 
+<script>
+let item = document.querySelectorAll("p");
+item.forEach(item => {
+  item.textContent ="Hello! Brijesh";
+  item.style.color ="blue";
+}); 
+</script>
 
+<p>One</p>
+<p>Two</p>
+<p>Three</p>
 
+<button id="btn122">Change All</button>
 
+<script>
+  let text12 = document.querySelectorAll("p");
+  // let btn122 = document.getElementById("btn122");
+  document.querySelector("#btn122").addEventListener("click",() => {
+    text12.forEach(item => {
+      item.style.color = "red";
+    });
+  });
+  // btn122.addEventListener("click", () => {
+  //   text12.forEach(item => {
+  //     item.style.color ="red";
+  //   });
+  // });
+</script>
 
 
 
