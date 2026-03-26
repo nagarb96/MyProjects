@@ -47,6 +47,11 @@
         cursor: pointer;
         padding: 5px;
       }
+      .done {
+        text-decoration: line-through;
+        opacity: 0.6;
+        background: greenyellow;
+      }
     </style>
   </head>
   <body>
@@ -68,7 +73,10 @@
       addBtn.addEventListener("click", () => {
         let task = taskInput.value;
 
-        if (task === "") return;
+        if (task === "") {
+          alert("Please enter a task!");
+          return;
+        }
         let li = document.createElement("li");
         li.textContent = task;
 
@@ -79,12 +87,64 @@
         //delete logic
         delBtn.addEventListener("click", () => {
           li.remove();
+          saveData();
         });
+        // Add when i press Enter to add task. mean when i click enter task will add in task list using .key
+        taskInput.addEventListener("keypress", (e) => {
+          if (e.key === "enter") {
+            addBtn.click();
+          }
+        });
+        // when task complete so done class property mean css run and background will be green. see like completed.
+        li.addEventListener("click", () => {
+          li.classList.toggle("done");
+        });
+
+        // Now we are save data in local storage.
+        function saveData() {
+          localStorage.setItem("tasks", taskList.innerHTML);
+        }
+
+        function loadData() {
+          taskList.innerHTML = localStorage.getItem("tasks") || "";
+        }
+        loadData();
+
         li.appendChild(delBtn);
         taskList.appendChild(li);
-
+        saveData();
         taskInput.value = "";
       });
+
+      function addEventsToTasks() {
+  let allLi = document.querySelectorAll("#taskList li");
+
+  allLi.forEach(li => {
+
+    // ✅ Complete toggle
+    li.addEventListener("click", () => {
+      li.classList.toggle("done");
+      saveData();
+    });
+
+    // ✅ Delete button
+    let btn = li.querySelector("button");
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation(); // ❗ important
+      li.remove();
+      saveData();
+    });
+
+  });
+}
+function loadData() {
+  taskList.innerHTML = localStorage.getItem("tasks") || "";
+  addEventsToTasks(); // 🔥 ye line important
+}
+loadData();
+taskList.appendChild(li);
+saveData();
+addEventsToTasks(); // 🔥
     </script>
   </body>
 </html>
