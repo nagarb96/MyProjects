@@ -6,111 +6,108 @@
     <title>Todo App</title>
     <style>
       body {
-        background: #f4f4f4;
         display: flex;
         justify-content: center;
-        margin-top: 100px;
+        background: #f4f4f4;
       }
       .container {
         background: #ffffff;
-        width: 350px;
         text-align: center;
-        border-radius: 12px;
+        border-radius: 10px;
         padding: 20px;
       }
-      h2 {
-        margin-bottom: 15px;
-      }
-      .input-section {
-        display: flex;
-        gap: 10px;
-      }
-      input {
-        flex: 1;
-        padding: 10px;
-        border-radius: 6px;
-        outline: none;
-      }
-      input:focus {
-        border-color: #007bff;
-      }
-      button {
-        padding: 10px 15px;
-        border: none;
-        background-color: #007bff;
-        color: #ffffff;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #005fc5;
-      }
-      #taskList {
-        margin-top: 15px;
-        width: 100%;
-      }
-      #taskList li {
+      li {
         list-style: none;
-        padding: 10px;
-        background: #f1f1f1;
-        border-radius: 6px;
-        margin-top: 8px;
+        background: #f4f4f4;
         display: flex;
         justify-content: space-between;
-        align-items: center;
-      }
-
-      #taskList li button {
-        background: red;
-        color: white;
-        border: none;
-        padding: 5px 8px;
-        border-radius: 5px;
-        cursor: pointer;
+        margin-top: 10px;
+        padding: 10px;
       }
       .done {
         text-decoration: line-through;
         opacity: 0.6;
+        background-color: greenyellow;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h2>Todo App</h2>
+      <h1>Todo App</h1>
       <div class="input-section">
-        <input type="text" id="taskInput" placeholder="Enter your task...." />
+        <input type="text" id="taskInput" placeholder="Enter Your task" />
         <button id="addBtn">Add</button>
       </div>
       <div id="taskList"></div>
     </div>
-
     <script>
       let taskInput = document.getElementById("taskInput");
       let addBtn = document.getElementById("addBtn");
       let taskList = document.getElementById("taskList");
 
+      // ✅ Save Data
+      function saveData() {
+        localStorage.setItem("tasks", taskList.innerHTML);
+      }
+
+      // ✅ Add Events (complete + delete)
+      function addEvents() {
+        let allLi = document.querySelectorAll("#taskList li");
+
+        allLi.forEach((li) => {
+          // complete toggle
+          li.onclick = () => {
+            li.classList.toggle("done");
+            saveData();
+          };
+
+          // delete button
+          let btn = li.querySelector("button");
+          btn.onclick = (e) => {
+            e.stopPropagation();
+            li.remove();
+            saveData();
+          };
+        });
+      }
+
+      // ✅ Load Data
+      function loadData() {
+        taskList.innerHTML = localStorage.getItem("tasks") || "";
+        addEvents();
+      }
+      loadData();
+
+      // ✅ Add Task
       addBtn.addEventListener("click", () => {
-        let text = taskInput.value;
+        let text = taskInput.value.trim();
+
+        if (text === "") return;
 
         let li = document.createElement("li");
         li.textContent = text;
 
-        // delete button
         let delBtn = document.createElement("button");
-        delBtn.textContent = "Del";
+        delBtn.textContent = "Delete";
 
-        // delete button logic
-        delBtn.addEventListener("click", () => {
-          li.remove();
-        });
-
-        li.addEventListener("click", () => {
-          li.classList.toggle("done");
-        });
+        delBtn.style.background = "red";
+        delBtn.style.color = "white";
+        delBtn.style.border = "none";
 
         li.appendChild(delBtn);
         taskList.appendChild(li);
+
         taskInput.value = "";
+
+        addEvents(); // 🔥 attach events
+        saveData(); // 🔥 save data
+      });
+
+      // ✅ Enter Key Support
+      taskInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          addBtn.click();
+        }
       });
     </script>
   </body>

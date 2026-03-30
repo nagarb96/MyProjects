@@ -36,7 +36,8 @@ if (age >= 18) {
 }
 
 // Ternary Operator (short version)
-age >= 18 ? console.log("Adult") : console.log("Minor");
+let age >= 18 ? console.log("Adult") : console.log("Minor");
+
 
 // 5. Loops
 // For Loop
@@ -1182,3 +1183,6 @@ let promise = new Promise((resolve, reject) => {
 });
 
 // now Practice DOM topic start so i am create index file to practice DOM.
+
+
+
