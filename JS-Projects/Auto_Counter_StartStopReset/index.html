@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auto Counter StartStopReset</title>
+  </head>
+  <body>
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Counter App</title>
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+          }
+          .container {
+            background-color: #4d4d4d;
+            padding: 30px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 30px;
+            justify-content: center;
+            align-items: center;
+          }
+          .buttonLayout button {
+            padding: 10px 20px;
+            background-color: #a7a7a7;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+          }
+          #displayCount {
+            background-color: rgb(247, 247, 247);
+            padding: 10px;
+            width: 100%;
+            border-radius: 8px;
+            text-align: right;
+          }
+          #start {
+            background-color: greenyellow;
+            color: black;
+          }
+          #Stop {
+            background-color: red;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div id="displayCount">0</div>
+          <div class="buttonLayout">
+            <button id="start">Start</button>
+            <button id="reset">Reset</button>
+            <button id="Stop">Stop</button>
+          </div>
+        </div>
+
+        <script>
+          let displayCount = document.getElementById("displayCount");
+          let start = document.getElementById("start");
+          let reset = document.getElementById("reset");
+          let Stop = document.getElementById("Stop");
+
+          //   let count = 0;
+          //   let interval; // important for time set
+
+          //   start.addEventListener("click", () => {
+          //     if(interval) return;
+
+          //     interval = setInterval(() => {
+          //         count++;
+          //         displayCount.textContent = count;
+          //     }, 400);
+          //   });
+
+          //   stop.addEventListener("click", () => {
+          //     clearInterval(interval);
+          //     interval = null;
+          //   });
+
+          //   reset.addEventListener("click", () => {
+          //     clearInterval(interval);
+          //     interval = null;
+
+          //     count = 0;
+          //     displayCount.textContent = count;
+          //   });
+
+          let count = 0;
+          let interval;
+
+          function updateDisplay() {
+            displayCount.textContent = count;
+          }
+          function startCount() {
+            if (interval) return;
+
+            interval = setInterval(() => {
+              count++;
+              updateDisplay();
+            }, 400);
+          }
+          function stopCount() {
+            clearInterval(interval);
+            interval = null;
+          }
+          function resetCount() {
+            stopCount();
+            count = 0;
+            updateDisplay();
+          }
+
+          start.addEventListener("click", startCount);
+          Stop.addEventListener("click", stopCount);
+          reset.addEventListener("click", resetCount);
+          
+        </script>
+      </body>
+    </html>
+  </body>
+</html>
