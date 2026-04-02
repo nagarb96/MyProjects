@@ -23,17 +23,40 @@
             display: flex;
             justify-content: center;
             margin-top: 100px;
+            gap: 10px;
           }
-          .container {
+          .mainbox {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+          }
+          .container1,
+          .container2 {
             background-color: #4d4d4d;
             padding: 30px;
             border-radius: 8px;
+          }
+          .container1 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+          }
+          .container2 {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            font-size: 30px;
             justify-content: center;
             align-items: center;
+            gap: 20px;
+            font-size: 30px;
+          }
+          .container1 div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #a7a7a7;
+            height: 50px;
+            width: 50px;
+            border-radius: 8px;
           }
           .buttonLayout button {
             padding: 10px 20px;
@@ -59,12 +82,20 @@
         </style>
       </head>
       <body>
-        <div class="container">
-          <div id="displayCount">0</div>
-          <div class="buttonLayout">
-            <button id="start">Start</button>
-            <button id="reset">Reset</button>
-            <button id="Stop">Stop</button>
+        <div class="mainbox">
+          <div class="container1">
+            <div>a</div>
+            <div>b</div>
+            <div>c</div>
+            <div>d</div>
+          </div>
+          <div class="container2">
+            <div id="displayCount">0</div>
+            <div class="buttonLayout">
+              <button id="start">Start</button>
+              <button id="reset">Reset</button>
+              <button id="Stop">Stop</button>
+            </div>
           </div>
         </div>
 
@@ -126,7 +157,6 @@
           start.addEventListener("click", startCount);
           Stop.addEventListener("click", stopCount);
           reset.addEventListener("click", resetCount);
-          
         </script>
       </body>
     </html>
