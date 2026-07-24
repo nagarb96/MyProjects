@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce layout</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .header {
+        background: #ffffff;
+        color: #000000;
+        padding: 12px 0;
+      }
+      .header-inner {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .search-box {
+        display: flex;
+        gap: 8px;
+      }
+      .search-box input {
+        padding: 10px;
+        width: 280px;
+        border: 0.5px solid #c2c2c2;
+        border-radius: 4px;
+      }
+      .search-box button {
+        padding: 10px 18px;
+        background: #ff6b00;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      .icons {
+        display: flex;
+        gap: 15px;
+        font-size: 22px;
+        cursor: pointer;
+      }
+      .icons span {
+        cursor: pointer;
+      }
+      .navbar {
+        background: #ff6a00;
+        padding: 12px 0;
+      }
+      .nav-inner {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+        display: flex;
+        gap: 35px;
+        align-items: center;
+      }
+      .nav-inner a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.2s;
+      }
+      .nav-inner a:hover {
+        color: #1f1610;
+      }
+      /* HERO SECTION */
+      .hero {
+        background: #ffffff;
+        padding: 50px 0;
+      }
+      .hero-inner {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+      }
+      .hero-text h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .hero-text p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #444;
+      }
+
+      .hero-btn {
+        padding: 12px 24px;
+        background: #ff6b00;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .hero-img-box {
+        border-radius: 10px;
+        background: #ddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #555;
+        font-size: 18px;
+      }
+      .hero-img-box img {
+        width: 500px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      /* CATEGORIES SECTION */
+      .categories {
+        padding: 40px 0;
+      }
+      .section-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        padding-left: 20px;
+      }
+      .cat-grid {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+      }
+      .cat-box {
+        background: #fff;
+        padding: 35px 0;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        border: 1px solid #eee;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .cat-box:hover {
+        background: #ff6b00;
+        color: #fff;
+      }
+      .cat-box img {
+        width: 70px;
+        margin-bottom: 10px;
+      }
+      /* PRODUCTS SECTION */
+      .products {
+        padding: 40px 0;
+      }
+      .product-grid {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+      }
+      .product-card {
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: left;
+        transition: 0.3s;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .p-img {
+        width: 100%;
+        height: 180px;
+        object-fit: contain;
+        border-radius: 6px;
+        margin-bottom: 8px;
+      }
+      .p-title {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .p-price {
+        font-size: 20px;
+        font-weight: bold;
+        color: #ff6b00;
+      }
+
+      .btn-outline {
+        margin-top: auto;
+        padding: 8px 12px;
+        border: 1px solid #999;
+        background: transparent;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 15px;
+      }
+
+      .btn-outline:hover {
+        background: #ff6b00;
+        color: #fff;
+        border-color: #ff6b00;
+      }
+      /* FOOTER SECTION */
+      .footer {
+        background: #111;
+        color: #fff;
+        padding: 40px 0;
+        margin-top: 40px;
+      }
+      .footer-inner {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 25px;
+      }
+      .footer-left h3 {
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+
+      .footer-left p {
+        color: #ccc;
+      }
+
+      .footer-links a {
+        display: block;
+        color: #ddd;
+        text-decoration: none;
+        margin-bottom: 10px;
+        transition: 0.2s;
+      }
+
+      .footer-links a:hover {
+        color: #ff6b00;
+      }
+
+      .footer-copy {
+        margin-top: 10px;
+        color: #999;
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .hero-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero-img-box {
+          width: 100%;
+          max-width: 500px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <div class="logo">ShopX</div>
+        <div class="search-box">
+          <input type="text" placeholder="Search products..." />
+          <button>Search</button>
+        </div>
+        <div class="icons">
+          <span>❤️</span>
+          <span>🛒</span>
+          <span>👤</span>
+        </div>
+      </div>
+    </header>
+    <nav class="navbar">
+      <div class="nav-inner">
+        <a href="#">Home</a>
+        <a href="#">Mobiles</a>
+        <a href="#">Electronics</a>
+        <a href="#">Fashion</a>
+        <a href="#">Grocery</a>
+        <a href="#">Beauty</a>
+      </div>
+    </nav>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1>Big Sale is Live Now!</h1>
+          <p>Up to 60% OFF on Electronics & Accessories</p>
+          <button class="hero-btn">Shop Now</button>
+        </div>
+
+        <div class="hero-image">
+          <div class="hero-img-box">
+            <img
+              src="https://i.pinimg.com/736x/5e/3a/a2/5e3aa213946dfb0e6e35264751383d25.jpg"
+              alt="Image"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="categories">
+      <h2 class="section-title">Shop by Category</h2>
+
+      <div class="cat-grid">
+        <div class="cat-box">
+          <img
+            src="https://i.pinimg.com/736x/77/bb/58/77bb584d7313eb31d40afa9a76b3c8d9.jpg"
+            alt="I-Phone 17"
+          />
+          <p>Mobiles</p>
+        </div>
+        <div class="cat-box">
+          <img
+            src="https://i.pinimg.com/736x/a6/c1/08/a6c108d48cb447c91380462acb7a42e9.jpg"
+            alt="Hoodies"
+          />
+          <p>Clothes</p>
+        </div>
+        <div class="cat-box">
+          <img
+            src="https://i.pinimg.com/1200x/17/3b/c6/173bc6c30fdd79831dacc00581372bce.jpg"
+            alt="Shoes"
+          />
+          <p>Shoes</p>
+        </div>
+        <div class="cat-box">
+          <img
+            src="https://i.pinimg.com/1200x/92/04/89/9204892c9b87c35b9c5cb0dd858200af.jpg"
+            alt="laptops"
+          />
+          <p>laptops</p>
+        </div>
+        <div class="cat-box">
+          <img
+            src="https://i.pinimg.com/1200x/cf/b8/67/cfb8674da6e3369814b89b13930918b7.jpg"
+            alt="Beauty"
+          />
+          <p>Beauty</p>
+        </div>
+        <div class="cat-box">
+          <img
+            src="https://i.pinimg.com/1200x/77/00/bc/7700bcb8adc40af398febbc5e14de6f4.jpg"
+            alt="Grocery"
+          />
+          <p>Grocery</p>
+        </div>
+      </div>
+    </section>
+    <section class="products">
+      <h2 class="section-title">Featured products</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img class="p-img" src="https://i.pinimg.com/736x/43/15/ae/4315ae69df9daa2550203db798b0d77f.jpg" alt="" />
+          <h3 class="p-title">Wireless Headphone</h3>
+          <p class="p-price">₹1,299</p>
+          <button class="btn-outline">View</button>
+        </div>
+        <div class="product-card">
+          <img class="p-img" src="https://i.pinimg.com/736x/5f/ad/97/5fad97f32d71ebfb1cf38944f744c880.jpg" alt="" />
+          <h3 class="p-title">Mixer Grinder</h3>
+          <p class="p-price">₹2,499</p>
+          <button class="btn-outline">View</button>
+        </div>
+
+        <div class="product-card">
+          <img class="p-img" src="https://i.pinimg.com/1200x/e4/3b/5e/e43b5e3afba941214b5b94c9efc81810.jpg" alt="" />
+          <h3 class="p-title">Induction</h3>
+          <p class="p-price">₹3,199</p>
+          <button class="btn-outline">View</button>
+        </div>
+
+        <div class="product-card">
+          <img class="p-img" src="https://i.pinimg.com/1200x/2c/ca/bd/2ccabd8fde957a2bd7ec59fd231ed7b9.jpg" alt="" />
+          <h3 class="p-title">Wireless Earbuds</h3>
+          <p class="p-price">₹899</p>
+          <button class="btn-outline">View</button>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <h3>ShopX</h3>
+          <p>Your trusted shopping partner.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+
+        <div class="footer-copy">© 2025 ShopX. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>

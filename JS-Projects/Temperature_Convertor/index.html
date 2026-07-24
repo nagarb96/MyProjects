@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Courier New", Courier, monospace;
+        background: linear-gradient(
+          to bottom,
+          rgb(157, 218, 233),
+          rgb(231, 240, 247)
+        );
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container1 {
+        width: 450px;
+        height: 300px;
+        border-radius: 10px;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px;
+      }
+      .container {
+        width: 460px;
+        height: 310px;
+        border-radius: 10px;
+        background: linear-gradient(var(--angle), black, white,black, white,black, white,black, white,black, white,black, white);
+        box-shadow: rgb(170, 168, 168) 1px 4px 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: spin 10s linear infinite;
+      }
+      @property --angle {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+      }
+      @keyframes spin {
+        to {
+          --angle: 360deg;
+        }
+      }
+      .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .row input {
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container1">
+        <h2>Temperature Converter</h2>
+        <div class="row">
+          <label for="celsius">Celsius</label>
+          <input type="text" placeholder="Enter Temperature" id="celsius" />
+        </div>
+        <div class="row">
+          <label for="fahrenheit">Fahrenheit</label>
+          <input
+            type="text"
+            placeholder="Enter Fahrenheit"
+            id="fahrenheit"
+            readonly
+          />
+        </div>
+        <div class="row">
+          <label for="kelvin">Kelvin</label>
+          <input type="text" placeholder="Enter Kelvin" id="kelvin" readonly />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let celsius = document.getElementById("celsius");
+      let fahrenheit = document.getElementById("fahrenheit");
+      let kelvin = document.getElementById("kelvin");
+
+      celsius.addEventListener("input", () => {
+        let cValue = parseFloat(celsius.value);
+
+        let fValue = parseFloat((cValue * 9) / 5) + 32;
+        fahrenheit.value = fValue;
+
+        let kValue = parseFloat(celsius.value) + 273.15;
+        kelvin.value = kValue;
+      });
+    </script>
+  </body>
+</html>

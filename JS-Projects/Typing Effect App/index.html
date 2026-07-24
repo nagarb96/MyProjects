@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Effect App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .container {
+            width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1 id="text"></h1>
+    <Button id="start">Start</Button>
+    </div>
+    <script>
+        let text = document.getElementById("text");
+        let start = document.getElementById("start");
+
+        let i = 0;
+        let display = "Hello brijesh";
+        
+        start.addEventListener("click", () => {
+            setInterval(() => {
+                
+                display.textContent =+ text[i];
+            },200);
+        });
+    </script>
+</body>
+</html>

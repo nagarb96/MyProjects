@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        body{font-family: 'Courier New', Courier, monospace;height: 100vh;width: 100%; background-color: aliceblue; display: flex; justify-content: center; align-items: center;}
+        .login_card {display: flex; flex-direction: column; justify-content: center; gap: 20px; min-height: 480px; width: 350px;background-color: #fff;border-radius: 20px;padding: 20px;}
+        .email_input,.password_input,.loginbtn{width: 100%;text-align: center;display: flex;flex-direction: column;}
+        .login_card input {width: 100%; padding: 10px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 16px; outline: none;}
+        .login_card input:focus {border-color: #ff0000;}
+        .loginbtn button { width: 100%; padding: 12px; background-color: #6c63ff; color: #fff; border: none; border-radius: 10px; font-size: 16px; cursor: pointer; }        
+        .login_card a { text-decoration: none; color: #333; font-size: 14px; }
+        .login_card a span { color: #6c63ff; font-weight: bold; }
+        #loginForm , #signupForm { display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 20px;}
+        #signupForm {display: none;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login_card">
+            <div id="loginForm">
+                    <div class="cardName">
+                    <h2>Login</h2>
+                </div>
+                <div class="email_input">
+                    <label for="email">Email</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="password_input">
+                    <label for="password">Password</label>
+                    <input type="password" id="password">
+                </div>
+                <div class="loginbtn">
+                    <button>Login</button>
+                </div>
+                <a href="#">Don't have account <span>Sign Up</span></a>                     
+            </div>
+            <div id="signupForm">
+                <!-- Sign Up form -->
+                <div class="signupCardName">
+                    <h2>Sign Up</h2>
+                </div>
+                <div class="signupName_input">
+                    <label for="name">Name</label>
+                    <input type="text" id="name">
+                </div>
+                <div class="sigupEmail_input">
+                    <label for="signemail">Email</label>
+                    <input type="email" id="SignUpEmail">
+                </div>
+                <div class="SignupPassword">
+                    <label for="signuppassword">Password</label>
+                    <input type="password" id="signupPassword"/>
+                </div>
+                <div class="confirmSignupPassword">
+                    <label for="confirmSignupPassword">Confirm Password</label>
+                    <input type="password" id="confirmSignupPassword"/>
+                </div>
+                <div class="signupbtn">
+                    <button>Sign Up</button>
+                </div>
+                <a href="#">If You have already account <span>Login</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Sign Up link click, Login Hide Sign Up show
+        document.querySelector('#loginForm a').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('loginForm').style.display ="none";
+            document.getElementById('signupForm').style.display = "flex";
+        });
+        // Login link click, Login Show Sign Up Hide
+        document.querySelector('#signupForm a').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('signupForm').style.display = "none";
+            document.getElementById('loginForm').style.display ="flex";
+
+        });
+        
+    </script>
+</body>
+</html>

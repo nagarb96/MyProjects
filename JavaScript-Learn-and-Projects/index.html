@@ -1,0 +1,544 @@
+<!doctype html>
+<html>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .containerr {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .box1212 {
+      width: 100%;
+      background-color: #000000;
+      height: 300px;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .dark {
+      background: black;
+      color: white;
+    }
+    .done {
+      background: green;
+      color: white;
+      text-decoration: line-through;
+    }
+  </style>
+  <body>
+    <div class="containerr">
+      <!-- Old Way Script -->
+      <p class="msg2">Hello JavaScript</p>
+      <button onclick="showMessage()">Click Me</button>
+      <p id="msg"></p>
+
+      <script>
+        function showMessage() {
+          document.getElementById("msg").innerText = "Button clicked!";
+        }
+      </script>
+
+      <!-- Modern Script -->
+      <button id="btn">Click Here</button>
+      <p id="result"></p>
+
+      <script>
+        document.getElementById("btn").addEventListener("click", function () {
+          document.getElementById("result").innerText = "You clicked!";
+        });
+      </script>
+
+      <button id="btn1">Click</button>
+      <p class="msg2"></p>
+
+      <script>
+        document.getElementById("btn1").addEventListener("click", function () {
+          // document.getElementById('msg2').innerHTML="Dub gya Dub gya!";
+          document.querySelectorAll(".msg2").forEach((item) => {
+            item.innerText = "Dub gya Dub gya!";
+          });
+        });
+      </script>
+      <div
+        class="container"
+        id="removeMe"
+        style="width: 300px; height: 20px; background-color: aqua"
+      ></div>
+      <script>
+        let box = document.querySelector(".container");
+        box.addEventListener("click", function () {
+          let randomColor =
+            "#" + Math.floor(Math.random() * 16777215).toString(16);
+          box.style.backgroundColor = randomColor;
+        });
+      </script>
+
+      <button id="addBtn">Add New</button>
+      <script>
+        document
+          .getElementById("addBtn")
+          .addEventListener("click", function () {
+            let p = document.createElement("p");
+            p.innerText = "This is new para!";
+            document.body.appendChild(p);
+          });
+      </script>
+      <button id="removeBtn">Remove para</button>
+      <script>
+        let para = document.getElementById("removeMe");
+        let btn = document.getElementById("removeBtn");
+
+        btn = addEventListener("dblclick", function () {
+          para.remove();
+        });
+      </script>
+
+      <button id="btn3">Tap</button>
+      <script>
+        document.getElementById("btn3").addEventListener("click", function () {
+          console.log(event); // full event info
+          console.log(event.target); // jis element par click hua
+        });
+      </script>
+
+      <div
+        id="box1"
+        style="width: 200px; height: 20px; background: lightblue"
+      ></div>
+
+      <script>
+        let box1 = document.getElementById("box1");
+
+        box1.addEventListener("mouseover", function () {
+          box1.style.background = "red";
+          box1.style.width = "100px";
+          box1.style.transition = "width 2s, height 4s, background-color 3s";
+        });
+        box1.addEventListener("mouseout", function () {
+          box1.style.background = "yellow";
+          box1.style.width = "200px";
+        });
+      </script>
+
+      <input id="inp" placeholder="Type something..." />
+
+      <script>
+        document
+          .getElementById("inp")
+          .addEventListener("keydown", function (event) {
+            console.log("You pressed: " + event.key);
+          });
+      </script>
+
+      <button id="textChnage">Change</button>
+      <script>
+        document
+          .getElementById("textChnage")
+          .addEventListener("click", function () {
+            this.innerText = "Ho gya!";
+          });
+        document
+          .getElementById("textChnage")
+          .addEventListener("dblclick", function () {
+            this.innerText = "Dubara Ho gya!";
+          });
+      </script>
+
+      <button id="textChnage1">Change</button>
+      <script>
+        document
+          .getElementById("textChnage1")
+          .addEventListener("click", function () {
+            this.innerText =
+              this.innerText === "Ho gya!" ? "Dubara Ho gya!" : "Ho gya!";
+          });
+      </script>
+
+      <button id="timeSet">Change Acording to time seconds</button>
+      <script>
+        document
+          .getElementById("timeSet")
+          .addEventListener("click", function () {
+            const old = this.innerText;
+            this.innerText = "Ho gya!";
+            setTimeout(() => (this.innerText = old), 2000);
+          });
+      </script>
+
+      <div
+        id="box41"
+        style="
+          width: 400px;
+          height: 20px;
+          background-color: #ffffff;
+          border: 1px solid black;
+        "
+      ></div>
+
+      <script>
+        const box41 = document.getElementById("box41");
+
+        box41.addEventListener("mouseover", function () {
+          const randomColor =
+            "#" + Math.floor(Math.random() * 16777215).toString(16);
+          box41.style.backgroundColor = randomColor;
+        });
+
+        box41.addEventListener("mouseout", function () {
+          box41.style.backgroundColor = "#ffffff";
+        });
+      </script>
+
+      <div
+        id="dabba"
+        style="width: 300px; height: 20px; background-color: #df4a44"
+      >
+        <script>
+          const dabba = document.getElementById("dabba");
+          dabba.addEventListener("mouseover", function () {
+            const randomColor =
+              "#" + Math.floor(Math.random() * 16777215).toString(16);
+            dabba.style.backgroundColor = randomColor;
+          });
+        </script>
+      </div>
+
+      <input id="username" placeholder="Type here" />
+      <button id="saveBtn">save</button>
+      <button id="showBtn">show</button>
+
+      <script>
+        document
+          .getElementById("saveBtn")
+          .addEventListener("click", function () {
+            let name = document.getElementById("username").value;
+            localStorage.setItem("username", name);
+          });
+        document.getElementById("showBtn").addEventListener("click", () => {
+          let saved = localStorage.getItem("username");
+          alert("Saved name: " + saved);
+        });
+      </script>
+
+      <button id="btn12">Click me</button>
+      <p id="msg1"></p>
+
+      <script>
+        let btn12 = document.getElementById("btn12");
+        let msg1 = document.getElementById("msg1");
+
+        btn12.addEventListener("click", function () {
+          msg1.innerHTML = "Button CLicked!";
+        });
+      </script>
+
+      <p id="msg3">Hello!</p>
+      <button id="login">Login</button>
+      <script>
+        let login = document.getElementById("login");
+        let t = document.getElementById("msg3");
+
+        login.addEventListener("click", () => {
+          t.style.fontSize = "25px";
+          t.innerText = "Hi! Brijesh";
+          login.innerText = "Logout";
+        });
+      </script>
+
+      <div id="box12"></div>
+      <script>
+        let box12 = document.getElementById("box12");
+
+        let p = document.createElement("p");
+        p.innerText = "I an New";
+        box12.appendChild(p);
+      </script>
+
+      <button id="add">Add Text</button>
+      <div id="container"></div>
+
+      <script>
+        let add = document.getElementById("add");
+        let box121 = document.getElementById("container");
+
+        add.addEventListener("click", () => {
+          let p = document.createElement("p");
+          p.innerText = "I am new para";
+          box121.appendChild(p);
+        });
+      </script>
+
+      <!-- Here i am start to DOM using upside is before just ussing before learn now this is for learning purpose. -->
+      <h1 id="title">Hello</h1>
+      <h2>Hii !</h2>
+      <script>
+        // only just change content using id of the html tag. select id on script using getElementById
+        let heading = document.getElementById("title");
+        heading.textContent = "Hello Brijesh";
+
+        // Now using querySelector. uses of this ("#title", ".title", "h1"). Mention id to use #, if class to use . and if using to select tag name use ("h1", "p"and more ).
+        let heading1 = document.querySelector("h2");
+        heading1.textContent = "Bye!";
+        heading1.style.color = "#A8240A";
+        heading1.style.fontFamily = "Charcoal,sans-serif";
+      </script>
+
+      <button id="btn21">Click Me</button>
+
+      <script>
+        let Button = document.getElementById("btn21");
+        Button.addEventListener("click", () => {
+          console.log("Button clicked");
+        });
+      </script>
+
+      <h1 id="title1">Hello</h1>
+      <button id="btn22">Change Text</button>
+      <script>
+        let Button1 = document.getElementById("btn22");
+        let title1 = document.getElementById("title1");
+
+        Button1.addEventListener("click", () => {
+          title1.textContent = "Hello, Brijesh!";
+        });
+      </script>
+
+      <p>One</p>
+      <p>Two</p>
+      <p>Three</p>
+
+      <script>
+        let item = document.querySelectorAll("p");
+        item.forEach((item) => {
+          item.textContent = "Hello! Brijesh";
+          item.style.color = "blue";
+        });
+      </script>
+
+      <p>One</p>
+      <p>Two</p>
+      <p>Three</p>
+
+      <button id="btn122">Change All</button>
+
+      <script>
+        let text12 = document.querySelectorAll("p");
+        // let btn122 = document.getElementById("btn122");
+        document.querySelector("#btn122").addEventListener("click", () => {
+          text12.forEach((item) => {
+            item.style.color = "red";
+          });
+        });
+        // btn122.addEventListener("click", () => {
+        //   text12.forEach(item => {
+        //     item.style.color ="red";
+        //   });
+        // });
+      </script>
+
+      <button id="chnageBackground">Change Color</button>
+      <script>
+        let chnageBackground = document.getElementById("chnageBackground");
+
+        chnageBackground.addEventListener("click", () => {
+          document.body.style.background = "#ccc";
+        });
+      </script>
+
+      <input type="text" placeholder="Write Here........" id="textField" />
+      <div class="preview"></div>
+
+      <script>
+        let textField = document.getElementById("textField");
+        let preview = document.querySelector(".preview");
+
+        textField.addEventListener("input", () => {
+          preview.textContent = textField.value;
+        });
+      </script>
+
+      <div class="box1212"></div>
+      <button id="addBox">Add box inside the red container</button>
+      <style>
+        .newBox {
+          display: flexbox;
+        }
+      </style>
+
+      <script>
+        let addBox = document.getElementById("addBox");
+        let box1212 = document.querySelector(".box1212");
+
+        let interval;
+        let maxBoxes = 60;
+
+        box1212.addEventListener("mousedown", () => {
+          interval = setInterval(() => {
+            if (box1212.children.length >= maxBoxes) {
+              box1212.innerHTML = "";
+            }
+
+            let newBox = document.createElement("div");
+            newBox.style.background = "green";
+
+            newBox.style.width = "50px";
+            newBox.style.height = "50px";
+
+            box1212.appendChild(newBox);
+          }, 5);
+        });
+        box1212.addEventListener("mouseup", () => {
+          clearInterval(interval); // stop
+        });
+      </script>
+
+      <input
+        type="text"
+        placeholder="Paste your data for count"
+        name="Character COunt"
+        id="charCount"
+      />
+      <div class="displayCharsCount"></div>
+
+      <script>
+        let charCount = document.getElementById("charCount");
+        let displayCharsCount = document.querySelector(".displayCharsCount");
+
+        charCount.addEventListener("input", () => {
+          displayCharsCount.textContent = charCount.value.length;
+        });
+      </script>
+
+      <button id="switchTheme">Dark Mode</button>
+
+      <script>
+        let switchTheme = document.getElementById("switchTheme");
+
+        switchTheme.addEventListener("click", () => {
+          document.body.classList.toggle("dark");
+
+          if (document.body.classList.contains("dark")) {
+            switchTheme.textContent = "Light Theme";
+          } else {
+            switchTheme.textContent = "Dark Mode";
+          }
+        });
+      </script>
+      <br />
+      <div class="todo">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search here yout tasks"
+        />
+        <input type="text" id="taskInput" />
+        <button id="addBtn12">Add Task</button>
+
+        <ul id="taskList"></ul>
+        <script>
+          let searchInput = document.getElementById("searchInput");
+          let taskInput = document.getElementById("taskInput");
+          let addBtn12 = document.getElementById("addBtn12");
+          let taskList = document.getElementById("taskList");
+
+          // Using localStorage to store tasks
+          let tasks = [];
+
+          // On Page Load
+          let savedTasks = localStorage.getItem("tasks");
+          if (savedTasks) {
+            tasks = JSON.parse(savedTasks);
+            renderTask();
+          }
+
+          // Store Every Task in LocalStorage for future saved data when i refesh page
+          function saveTasks() {
+            if (tasks.length === 0) {
+              localStorage.removeItem("tasks");
+              return;
+            }
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+          }
+
+          // Add Task funtion
+          function addTask() {
+            let task = taskInput.value.trim();
+            if (task === "") return;
+
+            tasks.push({
+              text: task,
+              completed: false,
+            });
+
+            saveTasks();
+            renderTask();
+
+            console.log(tasks);
+            taskInput.value = "";
+          }
+
+          function renderTask() {
+            taskList.innerHTML = "";
+            let searchText = searchInput.value.toLowerCase();
+            let filterTasks = tasks.filter((task) => {
+              return task.text.toLowerCase().includes(searchText);
+            });
+            filterTasks.forEach((task, index) => {
+              let li = document.createElement("li");
+              li.textContent = task.text;
+
+              li.addEventListener("click", () => {
+                task.completed = !task.completed;
+                if (task.completed === true) {
+                  li.classList.add("done");
+                } else {
+                  li.classList.remove("done");
+                }
+                console.log(task);
+                saveTasks();
+                renderTask();
+              });
+
+              let delBtn = document.createElement("button");
+              delBtn.textContent = "Delete";
+
+              delBtn.addEventListener("click", () => {
+                tasks.splice(index, 1);
+                renderTask();
+                saveTasks();
+              });
+
+              let editBtn = document.createElement("button");
+              editBtn.textContent = "Edit";
+
+              editBtn.addEventListener("click", () => {
+                let newTask = prompt("Edit Task");
+                if (newTask) {
+                  tasks[0].text = newTask;
+                }
+                renderTask();
+                saveTasks();
+              });
+              li.appendChild(editBtn);
+              taskList.appendChild(li);
+              li.appendChild(delBtn);
+            });
+          }
+          addBtn12.addEventListener("click", addTask);
+          searchInput.addEventListener("input", () => {
+            renderTask();
+          });
+        </script>
+      </div>
+
+      <!-- Add Before of the div end if you want same alignment -->
+    </div>
+  </body>
+</html>

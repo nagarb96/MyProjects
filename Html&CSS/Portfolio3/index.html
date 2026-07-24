@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brijesh | Portfolio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-light"> <!-- Bootstrap background class -->
+    <!-- Navbar -->
+<!-- Simple & Guaranteed Visible Navbar (Only Tailwind) -->
+<nav class="bg-white shadow-sm sticky top-0 z-50 py-4 px-6 md:px-20">
+    <div class="flex justify-between items-center max-w-7-xl mx-auto">
+        <!-- Logo -->
+        <a class="text-2xl font-bold text-[#FD6F00]" href="#">Brijesh</a>
+
+        <!-- Desktop Links (Visible by default) -->
+        <div class="hidden md:flex items-center gap-8 font-medium">
+            <a href="#home" class="text-black hover:text-[#FD6F00] transition-colors">Home</a>
+            <a href="#about" class="text-black hover:text-[#FD6F00] transition-colors">About</a>
+            <a href="#projects" class="text-black hover:text-[#FD6F00] transition-colors">Projects</a>
+            <button class="bg-[#FD6F00] text-white px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition shadow-md">
+                Contact
+            </button>
+        </div>
+
+        <!-- Mobile Menu Icon (Sirf choti screens par dikhega) -->
+        <div class="md:hidden">
+            <button class="text-black focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+<section id="home" class="container py-20">
+    <div class="row align-items-center">
+        <!-- Text Column -->
+        <div class="col-md-6 text-center text-md-start">
+            <h5 class="text-xl font-semibold text-gray-700">Hi, I am</h5>
+            <h1 class="display-3 fw-bold text-[#FD6F00]">Brijesh</h1>
+            <h2 class="h2 fw-bold mb-4">Web Developer</h2>
+            <p class="lead text-gray-600 mb-5">Building modern web applications with precision and clean code.</p>
+            <div class="d-flex gap-3 justify-content-center justify-content-md-start">
+                <button class="bg-[#FD6F00] text-white px-5 py-3 rounded-md shadow-lg hover:bg-orange-600 transition">Hire Me</button>
+                <button class="btn btn-outline-dark px-5 py-3 fw-bold">Download CV</button>
+            </div>
+        </div>
+        <!-- Image Column -->
+        <div class="col-md-6 mt-5 mt-md-0 d-flex justify-content-center">
+            <div class="rounded-circle bg-[#FD6F00] shadow-2xl overflow-hidden" style="width: 400px; height: 400px;">
+                <img src="https://i.pinimg.com/736x/0f/5b/fc/0f5bfc01c47db04707f9b88dd8e8fd93.jpg" class="rounded-circle img-fluid" alt="Brijesh">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Section -->
+<section id="about" class="container py-20">
+    <div class="row align-items-center">
+        <!-- Image/Illustration Column -->
+        <div class="col-md-5 d-none d-md-block">
+            <div class="position-relative">
+                <img src="https://i.pinimg.com/736x/9f/13/48/9f13480d95fa12cfc03cb4f50039e792.jpg" class="img-fluid rounded-2xl shadow-lg" alt="About Me">
+                <!-- Decorative box -->
+                <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-[#FD6F00]/20 -z-10 rounded-full"></div>
+            </div>
+        </div>
+
+        <!-- Content Column -->
+        <div class="col-md-7 ps-md-5">
+            <h2 class="text-4xl font-bold mb-4">About <span class="text-[#FD6F00]">Me</span></h2>
+            <p class="text-gray-600 leading-relaxed mb-6">
+                Main ek passionate **Web Developer** hoon jo Noida ke paas based hai. Maine NIIT South Extension se software engineering ka course kiya hai aur ab main modern full-stack technologies par focus kar raha hoon.
+            </p>
+            
+            <!-- Skills Grid -->
+            <div class="mb-8">
+                <h3 class="font-bold text-xl mb-4">My Skills</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-gray-100 px-4 py-2 rounded-full text-sm font-medium border border-gray-200">HTML5</span>
+                    <span class="bg-gray-100 px-4 py-2 rounded-full text-sm font-medium border border-gray-200">CSS3</span>
+                    <span class="bg-gray-100 px-4 py-2 rounded-full text-sm font-medium border border-gray-200">JavaScript</span>
+                    <span class="bg-gray-100 px-4 py-2 rounded-full text-sm font-medium border border-gray-200">React.js</span>
+                    <span class="bg-gray-100 px-4 py-2 rounded-full text-sm font-medium border border-gray-200">Tailwind CSS</span>
+                    <span class="bg-gray-100 px-4 py-2 rounded-full text-sm font-medium border border-gray-200">Bootstrap</span>
+                </div>
+            </div>
+
+            <!-- Stats/Experience -->
+            <div class="row g-4">
+                <div class="col-6">
+                    <div class="p-4 bg-white rounded-xl shadow-sm border-l-4 border-[#FD6F00]">
+                        <h4 class="text-2xl font-bold">Training</h4>
+                        <p class="text-gray-500 text-sm">3 Years Professional Course</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="p-4 bg-white rounded-xl shadow-sm border-l-4 border-[#FD6F00]">
+                        <h4 class="text-2xl font-bold">Projects</h4>
+                        <p class="text-gray-500 text-sm">Rent Management & Portfolios</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="projects" class="bg-white py-20">
+    <div class="container">
+        <h2 class="text-center mb-5 fw-bold text-4xl">My <span class="text-[#FD6F00]">Projects</span></h2>
+        <div class="row g-4"> <!-- Bootstrap gutter class for spacing -->
+            
+            <!-- Project 1 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <img src="https://i.pinimg.com/736x/7b/88/c3/7b88c3b12aedf4560d668d972ead6d5a.jpg" class="card-img-top" alt="Project 1">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold text-[#FD6F00]">Property Manager</h5>
+                        <p class="card-text text-muted">A system to manage rental records efficiently.</p>
+                        <a href="#" class="btn btn-sm btn-dark mt-2">View Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 (Add more as needed) -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm hover:shadow-xl transition-all">
+                    <img src="https://i.pinimg.com/736x/2a/17/d0/2a17d086cd98a66c742a2c30d28389bd.jpg" class="card-img-top" alt="Project 2">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold text-[#FD6F00]">E-Commerce App</h5>
+                        <p class="card-text text-muted">A full-stack store built with React and Tailwind.</p>
+                        <a href="#" class="btn btn-sm btn-dark mt-2">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 (Add more as needed) -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm hover:shadow-xl transition-all">
+                    <img src="https://i.pinimg.com/736x/2e/02/04/2e02047176ced247bf0cc3b108da04e6.jpg" class="card-img-top" alt="Project 3">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold text-[#FD6F00]">E-Commerce App</h5>
+                        <p class="card-text text-muted">A full-stack store built with React and Tailwind.</p>
+                        <a href="#" class="btn btn-sm btn-dark mt-2">View Demo</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<footer class="bg-dark text-white py-12">
+    <div class="container text-center">
+        <h3 class="text-[#FD6F00] font-bold text-2xl mb-4">Brijesh</h3>
+        <p class="text-gray-400 mb-6">Let's build something amazing together.</p>
+        <div class="flex justify-center gap-4 text-2xl mb-8">
+            <a href="#" class="hover:text-[#FD6F00]">LinkedIn</a>
+            <a href="#" class="hover:text-[#FD6F00]">GitHub</a>
+        </div>
+        <p class="text-xs text-gray-500">&copy; 2026 Brijesh | Noida, IN</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS Bundle (Required for Navbar Toggle) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

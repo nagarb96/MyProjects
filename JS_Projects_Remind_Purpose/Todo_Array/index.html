@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      header {
+        font-family: "Courier New", Courier, monospace;
+        background-image: url(https://images.wallpapersden.com/image/download/universe-planet-circle_Z2ZlbGmUmZqaraWkpJRmbmdlrWZmbWU.jpg);
+        background-repeat: no-repeat;
+        height: 700px;
+        background-size: cover;
+        background-position: center center;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+      }
+      .container {
+        margin: 200px auto;
+        min-width: 300px;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 50px;
+        background: #00000010;
+        border-radius: 16px;
+        border: 1px solid rgba(30, 84, 109, 0.753);
+        box-shadow:
+          0 6px 6px rgba(162, 226, 255, 0.2),
+          0 0 20px rgba(160, 223, 248, 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+      }
+      
+      .container h1 {
+        text-align: center;
+      }
+      .container input,
+      button {
+        padding: 12px 10px;
+        border-radius: 5px;
+        border: none;
+        color: #000;
+      }
+      #tasklist li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #tasklist {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background-color: #fff;
+        padding: 20px;
+        color: #000;
+        border-radius: 8px;
+      }
+      #darkModeThm {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        border-radius: 50%;
+        background-color: #fff;
+        border: none;
+        width: 50px;
+        height: 50px;
+      }
+      .dark {
+        background-color: #111;
+        color: #fff;
+      }
+
+      .dark .container {
+        background: #222;
+        color: #fff;
+      }
+
+      .dark #tasklist {
+        background: #333;
+        color: #fff;
+      }
+      .done {
+        background-color: green;
+        color: white;
+        text-decoration: line-through;
+      }
+      #goTop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="darkModeThm">🌙</button>
+    <header>
+      <div class="container">
+        <h1>My Todo App</h1>
+        <input type="text" id="taskInput" placeholder="Enter your task...." />
+        <button id="addBtn">Add Task</button>
+
+        <ul id="tasklist"></ul>
+      </div>
+    </header>
+
+    <section>
+      <h1>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea maiores
+        soluta aperiam reiciendis quis eius repudiandae ab cum sit? Pariatur
+        obcaecati ipsum dolore saepe nam assumenda accusamus repellendus
+        nesciunt. Delectus.
+      </h1>
+    </section>
+    <button id="goTop">Top</button>
+    <script>
+      let taskInput = document.getElementById("taskInput");
+      let addBtn = document.getElementById("addBtn");
+      let tasklist = document.getElementById("tasklist");
+      let tasks = [];
+
+      function taskadd() {
+        let task = taskInput.value.trim();
+
+        if (task === "") return;
+
+        tasks.push(task);
+
+        renderTasks();
+
+        taskInput.value = "";
+      }
+
+      function renderTasks() {
+        tasklist.innerHTML = "";
+
+        tasks.forEach((task, index) => {
+          let li = document.createElement("li");
+
+          li.textContent = task;
+
+          li.addEventListener("click", () => {
+            li.classList.toggle("done");
+          });
+
+          let delBtn = document.createElement("button");
+
+          delBtn.textContent = "Delete";
+
+          delBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+
+            deleteTask(index);
+          });
+
+          li.appendChild(delBtn);
+
+          tasklist.appendChild(li);
+        });
+
+        taskListHideUnhide();
+      }
+
+      function taskListHideUnhide() {
+        if (tasks.length === 0) {
+          tasklist.style.display = "none";
+        } else {
+          tasklist.style.display = "flex";
+        }
+      }
+      function deleteTask(index) {
+        tasks.splice(index, 1);
+        renderTasks();
+      }
+
+      addBtn.addEventListener("click", taskadd);
+      taskInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          taskadd();
+        }
+      });
+
+      let darkModeThm = document.getElementById("darkModeThm");
+
+      darkModeThm.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        document.body.style.transition = "0.9s";
+
+        if (document.body.classList.contains("dark")) {
+          darkModeThm.textContent = "☀️";
+        } else {
+          darkModeThm.textContent = "🌙";
+        }
+      });
+      let goTop = document.getElementById("goTop");
+      goTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      function toggleGoTop() {
+        if (window.scrollY > 0) {
+          goTop.style.display = "block";
+        } else {
+          goTop.style.display = "none";
+        }
+      }
+
+      window.addEventListener("scroll", toggleGoTop);
+      toggleGoTop();
+    </script>
+  </body>
+</html>

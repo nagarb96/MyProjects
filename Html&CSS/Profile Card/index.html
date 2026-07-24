@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        /* Color Palette */
+        --primary-color: #cecece;
+        --secondary-color: #000000;
+        --profile-card: #ffffff;
+
+        /* Typography */
+        --font-main: "Courier New", Courier, monospace;
+        --font-heading: "Poppins", Georgia, serif;
+
+        /* Font Sizes */
+        --font-size-sm: 0.875rem; /* 14px */
+        --font-size-base: 1rem; /* 16px */
+        --font-size-md: 1.25rem; /* 20px */
+        --font-size-lg: 1.75rem; /* 28px */
+        --font-size-xl: 2.5rem; /* 40px */
+      }
+      body {
+        font-family: var(--font-main);
+        background: var(--primary-color);
+        padding: 30px 50px;
+      }
+      .profile_card {
+        margin: 0 auto;
+        width: 350px;
+        max-width: 400px;
+        background: var(--profile-card);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+      }
+      .profile_image {
+        height: 200px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #161616;
+        display: flex;
+        justify-content: center;
+      }
+      .profile_image img {
+        width: 60%;
+        object-fit: cover;
+        object-position: center top;
+      }
+      .profile_social_links {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0 ;
+        border-radius: 40px;
+        background-color: #00000040;
+      }
+      .profile_social_links li,
+        .profile_social_links a {
+        list-style: none;
+        text-decoration: none;
+      }
+      .profile_social_links a {
+        padding: 10px 13px;
+        border-radius: 50%;
+      }
+      .fa-facebook {
+        background-color: #0066c5;
+        color: #ffffff;
+        font-size: 30px;
+      }
+      .fa-instagram {
+        background-color: #f13675;
+        color: #ffffff;
+        font-size: 30px;
+      }
+      .fa-snapchat-ghost {
+        background-color: #fffb00;
+        color: #ffffff;
+        font-size: 30px;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      }
+      .profile_social_links a {
+        transition: 0.3s ease-in-out;
+      }
+      .profile_social_links a:hover {
+        transform: scale(1.1);
+        translate: ;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile_card">
+      <div class="profile_image">
+        <img src="Brijesh_nage.jpg" alt="Brijesh" />
+      </div>
+      <div class="profile_name">
+        <h3>Brijesh Nagar</h3>
+      </div>
+      <div class="profile_info">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae
+          deserunt at voluptatem deleniti iste quo molestias magni blanditiis
+          inventore atque!
+        </p>
+      </div>
+      <div>
+        <ul class="profile_social_links">
+          <li><a href="#" class="fa fa-facebook"></a></li>
+          <li><a href="#" class="fa fa-instagram"></a></li>
+          <li><a href="#" class="fa fa-snapchat-ghost"></a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

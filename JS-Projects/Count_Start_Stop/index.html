@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single Btn Start Stop</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Courier New", Courier, monospace;
+        background-color: #e4e4e4;
+      }
+      .container {
+        width: 300px;
+        background-color: #fff;
+        margin: 20px auto;
+        text-align: center;
+        padding: 20px;
+      }
+      #display {
+        padding: 10px 0;
+        font-size: 20px;
+        background-color: aqua;
+        margin-bottom: 20px;
+      }
+      #toggleBtn, #slowBtn, #fastBtn {
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="display">0</div>
+      <button id="toggleBtn">Start</button>
+      <button id="slowBtn">Slow</button>
+      <button id="fastBtn">Fast</button>
+    </div>
+    <script>
+      let display = document.getElementById("display");
+      let toggleBtn = document.getElementById("toggleBtn");
+      let slowBtn = document.getElementById("slowBtn");
+      let fastBtn = document.getElementById("fastBtn");
+
+      let count = 0;
+      let interval;
+      let isRunning = false;
+      let speed = 1000;
+
+      // toggleBtn.addEventListener("click", () => {
+      //   if (!isRunning) {
+      //     interval = setInterval(() => {
+      //       count++;
+      //       display.textContent = count;
+      //     }, speed);
+
+      //     toggleBtn.textContent = "Stop";
+      //     isRunning = true;
+      //   } else {
+      //     clearInterval(interval);
+      //     interval = null;
+
+      //     toggleBtn.textContent = "Start";
+      //     isRunning = false;
+      //   }
+      // });
+
+      function startCounter() {
+        if (interval) clearInterval(interval); 
+
+        interval = setInterval (() => {
+          count++;
+          display.textContent = count;
+        }, speed);
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        if(!isRunning) {
+          startCounter();
+          toggleBtn.textContent ="Stop";
+          isRunning = true;
+        } else {
+          clearInterval(interval);
+          interval = null;
+          toggleBtn.textContent ="Start";
+          isRunning = false;
+        }
+      });
+
+      fastBtn.addEventListener("click", ()=> {
+        speed = 20;
+        if(isRunning) {
+          startCounter();  //restart with new speed
+        }
+      });
+
+      slowBtn.addEventListener("click" , () => { 
+        speed = 1000;
+        if(isRunning) {
+          startCounter();
+        }
+      });
+
+    </script>
+  </body>
+</html>

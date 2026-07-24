@@ -1,0 +1,300 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header_container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.head-grid nav ul {
+  display: flex;
+  justify-content: right;
+  gap: 20px;
+}
+.head-grid nav li a {
+  padding: 5px 7px;
+  background-color: rgb(255, 153, 0);
+  color: #ffffff;
+}
+.head-grid li,
+.head-grid a {
+  text-decoration: none;
+  list-style: none;
+}
+.head-grid h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 35px;
+  color: rgb(255, 153, 0);
+}
+.hero-section {
+  background: url(https://images.pexels.com/photos/2942331/pexels-photo-2942331.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding: 100px 0;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+}
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.hero-section .content {
+  gap: 10px;
+  width: 60%;
+}
+.hero-section .content h1 {
+  font-size: 55px;
+}
+.brand-name {
+  color: rgb(252, 216, 17);
+}
+.hero-section .content p {
+  font-size: 25px;
+}
+.herobtn {
+  padding-top: 30px;
+  display: flex;
+  gap: 30px;
+}
+
+.herobtn li,
+.herobtn a {
+  text-decoration: none;
+  list-style: none;
+}
+.primarybtn {
+    background-color: rgb(255, 153, 0);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+.secondarybtn {
+    color:  rgb(255, 153, 0);
+    border: 2px solid  rgb(255, 153, 0);
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+.ctabtn {
+    color:  rgb(255, 153, 0);
+    border: 2px solid  rgb(255, 153, 0);
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+.ctabtn:hover {
+    background-color: rgb(255, 153, 0);
+    color: #ffffff;
+}
+.primarybtn:hover,.secondarybtn:hover {
+    background-color: #ffffff;
+    color: rgb(255, 153, 0);
+}
+.about-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 0;
+    background : url(https://i.pinimg.com/1200x/62/56/ed/6256ed9c1194dc7aa152075c20e4df25.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+}.about-section .content {
+    width: 55%;
+}
+.about-section h3 {
+    font-size: 35px;
+    color: rgb(255, 153, 0);
+    padding-bottom: 20px;
+}
+.about-section p {
+    font-size: 30px;
+}
+.why-choose-us {
+    display: flex;
+    justify-content: center;
+    padding: 100px 0;
+    background-color: rgb(255, 153, 0);
+}
+.why-choose-us .content {
+    width: 100%;
+}
+.why-choose-us .content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.why-choose-us .content .card-grids {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.why-choose-us .content .card-grids .icon {
+    font-size: 50px;
+    color: rgb(255, 153, 0);
+    padding-bottom: 20px;
+}
+
+.why-choose-us .card-grids .feature-name {
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.why-choose-us .card-grids .description {
+    font-size: 20px;
+    color: #555555;
+}
+.special-dishes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.special-dishes .chef-special {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.chef-special h3 {
+    font-size: 35px;
+    color: rgb(255, 153, 0);
+    padding-bottom: 20px;
+}
+.featured-dishes-gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+.card-grids {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.feature-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.small-description {
+    font-size: 18px;
+    color: #555555;
+    padding-top: 10px;
+}
+.testimonials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 200px;
+    text-align: center;
+    background-color: rgb(255, 153, 0);
+}
+.testimonials p {
+    font-size: 30px;
+    color: #ffffff;
+    padding-bottom: 20px;
+}
+
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer .footer-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.footer .footer-grid li,
+.footer .footer-grid a {
+    text-decoration: none;
+    list-style: none;
+    color: #ffffff;
+}
+footer {
+        background-color: #333;
+        color: #fff;
+        padding: 40px 0;
+        display: flex;
+        justify-content: space-around;
+        text-align: left;
+      }
+      .footer-grid h2,
+      .footer-grid h3 {
+        margin-bottom: 10px;
+      }
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 40px 0;
+        display: flex;
+        justify-content: space-around;
+        text-align: left;
+      }
+      .footer-grid h2,
+      .footer-grid h3 {
+        margin-bottom: 10px;
+      }
+@media screen and (max-width: 768px) {
+  header {height: auto;}
+  .header_container {flex-direction: column; gap: 50px;padding: 50px 0;}
+  .hero-section {height: auto;}
+  .hero-section .content,.herobtn {width: 100%;justify-content: center;}
+  .hero-section .content h1 { font-size: 35px; text-align: center;}
+  .hero-section .primarybtn,.secondarybtn {font-size: 16px;}
+  .hero-section .content p { font-size: 22px; text-align: center;}
+  .about-section {background: none; text-align: center; padding: 50px 20px ; height: auto;}
+  .about-section .content {width: 100%;}
+  .about-section .content h3 {font-size: 25px;}
+  .about-section .content p {font-size: 20px;}
+  .featured-dishes-gallery {grid-template-columns: repeat(1,1fr);}
+  .why-choose-us .content {grid-template-columns: repeat(1, 1fr);}
+  .chef-special h3 {font-size: 25px;}
+  .special-dishes {height: auto; padding: 50px 20px;}
+  .testimonials p {font-size: 20px;}
+  .testimonials {padding: 50px 20px ;}
+  footer {flex-direction: column; align-items: center; gap: 30px;}
+  .footer-grid li {list-style: none; }
+  .footer-grid {text-align: center;}
+}

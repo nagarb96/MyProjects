@@ -1,0 +1,478 @@
+/* ================= GLOBAL RESET ================= */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= MAIN CONTAINER ================= */
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* ================= LEFT SIDEBAR ================= */
+.left_container {
+    width: 20%;
+    min-width: 300px;
+    padding: 20px;
+    background-color: #000000;
+    display: flex;
+    justify-content: left;   
+    align-items: flex-start;     
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow: scroll;
+}
+
+/* ================= RIGHT PREVIEW AREA ================= */
+.right_container {
+    width: 80%;
+    background-color: #e2e2e2;
+    display: flex;
+    justify-content: center;
+    padding: 20px 50px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow: scroll;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* ================= HEADER ================= */
+header {
+    width: 100%;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Header content area */
+.header_content {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ================= LOGO SECTION ================= */
+.logo_container{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    padding: 20px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px 10px 0 0 ;
+}
+
+/* Logo image */
+.logo {
+    width: 150px;
+    height: auto;
+    text-align: center;
+}
+
+/* ================= MAIN FORM AREA ================= */
+main{
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Form styling */
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* ================= FORM FIELD ================= */
+.field_container{
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* Form label */
+.field_container label{
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+}
+
+/* Form input */
+.field_container input{
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* ================= FORWARD/BACK BUTTONS ================= */
+
+.forwardBackwordBtn{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Navigation buttons */
+.forwardBackwordBtn button {
+    width: 40%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #000000;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ================= ACTION BUTTON AREA ================= */
+
+.Btn_funtionality{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* Action buttons */
+
+.Btn_funtionality button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #919191;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #ffffff;
+    cursor: pointer;
+}
+
+/* ================= A4 PREVIEW STYLES ================= */
+.a4-preview {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Main A4 page */
+
+.a4-page {
+    width: 210mm;
+    height: 297mm;
+    background-color: #ffffff;
+    padding: 80px 50px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Preview logo */
+
+.preview-logo {
+    text-align: center;
+    width: 100px;
+    height: auto;
+}
+
+/* Header inside A4 page */
+
+Header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* Horizontal line */
+
+hr {
+    width: 100%;
+    border: 1px solid #cccccc;
+}
+
+
+
+
+/* ================= SECTIONS ================= */
+
+/* Main section wrapper */
+
+.sections{
+    counter-reset:mainCounter;
+    width: 100%;
+    text-align: left;
+    
+}
+
+/* Individual section */
+
+.section{
+    border-top:1px solid #000;
+    padding-top:18px;
+    margin-bottom:35px;
+    position:relative;
+}
+
+/* Section title */
+
+.section-title{
+    font-size:17px;
+    font-weight:bold;
+    text-transform:uppercase;
+    margin-bottom:15px;
+}
+
+/* Auto numbering for sections */
+
+.section-title::before{
+    counter-increment:mainCounter;
+    content:counter(mainCounter) ". ";
+}
+
+/* Section paragraph */
+
+.section p{
+    font-size:15px;
+    line-height:1.9;
+    text-align:justify;
+}
+
+/* ================= SECTION BUTTONS ================= */
+
+/* Top section button container */
+
+.section-buttons{
+    position:absolute;
+    right:0;
+    top:0;
+}
+
+/* Section buttons */
+
+.section-buttons button{
+    padding:6px 10px;
+    border:none;
+    cursor:pointer;
+    color:#fff;
+    margin-left:6px;
+    font-size:12px;
+}
+
+/* Delete section button */
+
+.delete-section{
+    background:#c62828;
+}
+
+/* Add point button */
+.add-point{
+    background:#1565c0;
+}
+/* Add section button */
+
+.paragraph-buttons {
+    margin-top: 8px;
+}
+
+/* Paragraph buttons */
+
+.paragraph-buttons button {
+    padding: 6px 10px;
+    border: none;
+    background: #444;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 6px;
+    font-size: 12px;
+}
+/* Add paragraph button */
+
+.add-paragraph{
+    background: #2e7d32;
+}
+
+/* LISTS */
+ol, ul{
+    padding-left:30px;
+    margin-top:10px;
+}
+
+li{
+    margin-bottom:10px;
+    line-height:1.8;
+}
+
+.alpha-list{
+    list-style-type:lower-alpha;
+}
+
+.roman-list{
+    list-style-type:lower-roman;
+}
+
+.number-list{
+    list-style-type:decimal;
+}
+
+.bullet-list{
+    list-style-type:disc;
+}
+
+.square-list{
+    list-style-type:square;
+}
+
+/* TOOLBAR */
+.point-toolbar{
+    margin-top:10px;
+}
+
+.point-toolbar button,
+.point-toolbar select{
+    padding:6px 10px;
+    border:none;
+    background:#222;
+    color:#fff;
+    cursor:pointer;
+    margin-right:6px;
+    margin-top:5px;
+}
+
+/* ================= POINT TOOLBAR ================= */
+@media print {
+
+    /* Remove browser default print margins */
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+
+    /* Hide left sidebar during print */
+    .left_container {
+        display: none !important;
+    }
+
+    /* Right container full width */
+    .right_container {
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+    }
+
+    /* Full width preview during print */
+    .a4-preview {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    /* Bottom black strip on printed page */
+.a4-page {
+    position: relative !important;
+}
+
+.a4-page::after {
+    content: "";
+    position: relative  !important;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background: #000000;
+    z-index: 999;
+}
+
+    /* A4 page print settings */
+    .a4-page {
+        width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        position: relative;
+    }
+
+    /* Hide editing buttons and controls during print */
+    .section-buttons,
+    .paragraph-buttons,
+    .point-toolbar,
+    .Btn_funtionality,
+    button,
+    select,
+    input[type="file"] {
+        display: none !important;
+    }
+
+    /* Remove editable field borders during print */
+    [contenteditable="true"] {
+        border: none !important;
+        outline: none !important;
+    }
+
+    /* Watermark print styling */
+    #previewWatermark {
+    display: block !important;
+    position: fixed !important;          
+    top: 50% !important;                /* Center watermark */
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 70% !important;
+    height: auto !important;
+    opacity: 0.06 !important;                    /* Light watermark opacity */
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
+
+    /* Keep all content above watermark */
+    .a4-page * {
+        position: relative;
+        z-index: 1;
+    }
+}

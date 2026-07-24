@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roll Simulator</title>
+    <style>
+        :root{--bg:#f6f7fb;--card:#ffffff;--accent:#2b7cff}
+        html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:#111}
+        .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:32px}
+        .card{background:var(--card);padding:28px;border-radius:12px;box-shadow:0 6px 24px rgba(20,30,60,0.08);width:320px;text-align:center}
+        h1{margin:0 0 8px;font-size:20px}
+        p.lead{margin:0 0 18px;color:#556}
+        .dice{font-size:72px;line-height:1;height:96px;display:flex;align-items:center;justify-content:center}
+        .result{font-weight:600;margin-top:6px;font-size:18px}
+        button{margin-top:18px;background:var(--accent);color:#fff;border:0;padding:10px 16px;border-radius:8px;cursor:pointer;font-size:16px}
+        button:active{transform:translateY(1px)}
+        .shake{animation:shake 600ms ease}
+        @keyframes shake{0%{transform:rotate(0deg)}25%{transform:rotate(20deg)}50%{transform:rotate(-14deg)}75%{transform:rotate(8deg)}100%{transform:rotate(0deg)}}
+        footer{margin-top:12px;font-size:12px;color:#778}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="card">
+            <h1>Dice Roll Simulator</h1>
+            <p class="lead">Click to roll a six-sided die.</p>
+
+            <div id="dice" class="dice" aria-live="polite">⚀</div>
+            <div id="value" class="result">Roll: 1</div>
+
+            <button id="rollBtn">Roll Dice</button>
+
+            <footer>Random roll using JavaScript's crypto (if available)</footer>
+        </div>
+    </div>
+
+    <script>
+        const diceEl = document.getElementById('dice');
+        const valueEl = document.getElementById('value');
+        const btn = document.getElementById('rollBtn');
+        const faces = ['⚀','⚁','⚂','⚃','⚄','⚅'];
+
+        function secureRandomInt(max){
+            if(window.crypto && window.crypto.getRandomValues){
+                const array = new Uint32Array(1);
+                window.crypto.getRandomValues(array);
+                return array[0] % max;
+            }
+            return Math.floor(Math.random()*max);
+        }
+
+        function rollDice(){
+            diceEl.classList.remove('shake');
+            // trigger reflow to restart animation
+            void diceEl.offsetWidth;
+            diceEl.classList.add('shake');
+
+            // pick a value after small delay to match animation
+            setTimeout(()=>{
+                const idx = secureRandomInt(6);
+                diceEl.textContent = faces[idx];
+                valueEl.textContent = `Roll: ${idx+1}`;
+            }, 160);
+        }
+
+        btn.addEventListener('click', rollDice);
+        // support space/enter when button focused
+        btn.addEventListener('keyup', (e)=>{ if(e.key === ' '||e.key === 'Enter') rollDice(); });
+    </script>
+</body>
+</html>

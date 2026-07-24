@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  font-family: cursive;
+}
+.testimonial_container {
+  width: 500px;
+  height: 100px;
+  background-color: rgb(156, 206, 235);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(0, 0, 0, 0.3);
+  min-width: 400px;
+  padding: 70px 20px;
+  margin: 5px;
+  color: #ffffff;
+  position: relative;
+  text-align: center;
+}
+img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -50px;
+}
+.username {
+  font-size: 13px;
+  font-weight: 100;
+}

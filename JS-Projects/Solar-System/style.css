@@ -1,0 +1,309 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow: hidden;
+  background: #000000;
+  font-family: "Courier New", monospace;
+}
+canvas#starfield {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.solar-system {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+#speedControl {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 220px;
+  height: 4px;
+  background: linear-gradient(to right, #4af3ff, #c084fc);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(74, 243, 255, 0.5);
+}
+#speedControl::webkit-slider-thumb {
+  -webkit-appearance: noen;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow:
+    0 0 8px #4af3ff,
+    0 0 16px #4af3ff;
+  cursor: pointer;
+}
+#speedLabel {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  z-index: 100;
+}
+/* Sun */
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle at 35% 35%, #fff9a0, #ffd700 40%, #ff8c00);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 40px #ffd700,
+    0 0 80px rgba(255, 165, 0, 0.5),
+    0 0 120px rgba(255, 100, 0, 0.3);
+  z-index: 10;
+  animation: pulse 3s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 40px #ffd700,
+      0 0 80px rgba(255, 165, 0, 0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 60px #ffd700,
+      0 0 100px rgba(255, 165, 0, 0.6),
+      0 0 150px rgba(255, 100, 0, 0.3);
+  }
+}
+
+/* Orbits */
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.planet {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  border-radius: 50%;
+}
+
+/* Planet label */
+.label {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 10px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+/* Mercury */
+.mercury-orbit {
+  width: 120px;
+  height: 120px;
+  animation: rotate var(--mercury-dur, 4s) linear infinite;
+}
+.mercury {
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle at 35% 35%, #d4d4d4, #808080);
+  box-shadow: 0 0 4px #aaa;
+}
+/* Venus */
+.venus-orbit {
+  width: 170px;
+  height: 170px;
+  animation: rotate var(--venus-dur, 7s) linear infinite;
+}
+.venus {
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 35% 35%, #ffe8b0, #e8a040);
+  box-shadow: 0 0 6px rgba(232, 160, 64, 0.8);
+}
+/* Earth */
+.earth-orbit {
+  width: 220px;
+  height: 220px;
+  animation: rotate var(--earth-dur, 10s) linear infinite;
+}
+.earth {
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 35% 35%, #7ecfff, #1e88e5 50%, #1a6b20);
+  box-shadow: 0 0 8px rgba(30, 136, 229, 0.8);
+}
+/* Mars */
+.mars-orbit {
+  width: 280px;
+  height: 280px;
+  animation: rotate var(--mars-dur, 14s) linear infinite;
+}
+.mars {
+  width: 11px;
+  height: 11px;
+  background: radial-gradient(circle at 35% 35%, #ff7755, #c0392b);
+  box-shadow: 0 0 6px rgba(192, 57, 43, 0.8);
+}
+/* Jupiter */
+.jupiter-orbit {
+  width: 360px;
+  height: 360px;
+  animation: rotate var(--jupiter-dur, 18s) linear infinite;
+}
+.jupiter {
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle at 40% 35%, #f5cba7, #d4a06a 40%, #b08040);
+  box-shadow: 0 0 10px rgba(180, 130, 60, 0.6);
+}
+/* Saturn */
+.saturn-orbit {
+  width: 450px;
+  height: 450px;
+  animation: rotate var(--saturn-dur, 24s) linear infinite;
+}
+.saturn {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 35% 35%, #f5e6a0, #d4c060);
+  box-shadow: 0 0 8px rgba(200, 180, 80, 0.6);
+}
+.saturn-ring {
+  position: absolute;
+  width: 40px;
+  height: 12px;
+  border: 2.5px solid rgba(216, 195, 138, 0.85);
+  border-radius: 50%;
+  left: -10px;
+  top: 3px;
+  transform: rotate(25deg);
+  box-shadow: 0 0 4px rgba(216, 195, 138, 0.4);
+}
+/* Uranus */
+.uranus-orbit {
+  width: 540px;
+  height: 540px;
+  animation: rotate var(--uranus-dur, 30s) linear infinite;
+}
+.uranus {
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle at 35% 35%, #a8f0f0, #40b0b0);
+  box-shadow: 0 0 8px rgba(64, 176, 176, 0.7);
+}
+
+/* Neptune */
+.neptune-orbit {
+  width: 630px;
+  height: 630px;
+  animation: rotate var(--neptune-dur, 36s) linear infinite;
+}
+.neptune {
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle at 35% 35%, #7090ff, #1e40af);
+  box-shadow: 0 0 8px rgba(30, 64, 175, 0.8);
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+/* Moon */
+.moon-orbit {
+  position: absolute;
+  width: 30px; height: 30px;
+  left: -8px; top: -8px;
+  border-radius: 50%;
+  animation: moonRotate var(--moon-dur, 3s) linear infinite;
+}
+.moon {
+  position: absolute;
+  width: 5px; height: 5px;
+  background: #d0d0d0;
+  border-radius: 50%;
+  top: -2px; left: 50%;
+  box-shadow: 0 0 4px rgba(200,200,200,0.6);
+}
+@keyframes moonRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+/* Asteroid belt */
+.asteroid-belt {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 318px; height: 318px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: asteroidRotate var(--asteroid-dur, 30s) linear infinite;
+}
+.asteroid {
+  position: absolute;
+  width: 4px; height: 4px;
+  background: #888;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+.a1 { top:0; left:50%; }
+.a2 { top:50%; right:0; }
+.a3 { bottom:0; left:50%; }
+.a4 { top:50%; left:0; }
+.a5 { top:60px; left:280px; }
+.a6 { top:280px; left:60px; }
+.a7 { top:20px; left:160px; }
+.a8 { top:140px; right:10px; }
+@keyframes asteroidRotate {
+  from { transform: translate(-50%,-50%) rotate(0deg); }
+  to   { transform: translate(-50%,-50%) rotate(360deg); }
+}
+/* Comets */
+.comet {
+  position: fixed;
+  z-index: 2;
+  pointer-events: none;
+}
+.comet-head {
+  width: 6px; height: 6px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 4px rgba(180,230,255,0.9), 0 0 20px 8px rgba(100,180,255,0.5);
+  position: absolute;
+  right: 0; top: -3px;
+}
+.comet-tail {
+  position: absolute;
+  right: 6px; top: -1px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to left, rgba(200,240,255,0.8), transparent);
+}

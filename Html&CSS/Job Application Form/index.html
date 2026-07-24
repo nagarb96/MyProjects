@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #eee;
+            margin-top: 100px;
+        }
+        form h1 {
+            margin-bottom: 30px;
+        }
+        .container {
+            background-color: #fff;
+            width: 600px;
+            padding: 30px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+        .form_container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .form_control {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            width: 100%;
+        }
+        .form_control label {
+            margin-bottom: 5px;
+        }
+        .form_control input,
+        .form_control select {
+            padding: 8px 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            }
+        .form_control textarea {
+            padding: 8px 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            min-height: 110px;
+        }
+        .form_control [type="file"] {
+            padding: 8px 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+      
+        #file {
+            border: 1px solid #ccc;
+        }
+        .applyBtn button{
+            padding: 8px 12px;
+            background-color: rgb(255, 0, 0);
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .applyBtn {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+        <h1>Job Application <Span>(Web)</Span></h1>
+
+        <div class="form_container">
+            <div class="form_control">
+                <label for="name" id="fNameLable">First Name</label>
+                <input type="text" id="firstName" placeholder="Enter your first name....">
+            </div>
+            <div class="form_control">
+                <label for="name" id="lNameLable">Last Name</label>
+                <input type="text" id="lastName" placeholder="Enter your last name....">
+            </div>
+        </div>
+        <div class="form_container">
+            <div class="form_control">
+                <label for="email" id="emailLable">First Name</label>
+                <input type="email" id="email" placeholder="Enter your email name....">
+            </div>
+            <div class="form_control">
+                <label for="name" id="JobRole">Job Role</label>
+                <select name="role" id="jobRoleLable">
+                    <option value="Select Your Job Role">Select Your Job Role</option>
+                    <option value="Front-end">Front-end</option>
+                    <option value="Backend Developer">Backend Developer</option>
+                    <option value="Full Stack Developer">Full Stack Developer</option>
+                    <option value="UI UX Designer">UI UX Designer</option>
+                </select>
+            </div>
+        </div>
+        <div class="form_container">
+            <div class="form_control">
+                <label for="address">Address</label>
+                <textarea name="address" id="address" rows="5"></textarea>
+            </div>
+        </div>
+        <div class="form_container">
+            <div class="form_control">
+                <label for="city" id="city">City</label>
+                <input type="text" id="city" placeholder="Enter your city name....">
+            </div>
+            <div class="form_control">
+                <label for="zip-code" id="zipCode">Pin Code</label>
+                <input type="number" id="zip" placeholder="Enter your pin code...." maxlength="6">
+            </div>
+        </div>
+        <div class="form_container">
+            <div class="form_control">
+                <label for="date" id="date">Date</label>
+                <input type="date" id="date">
+            </div>
+            <div class="form_control file_box">
+                <label for="file" id="file_label">upload Your CV</label>
+                <input type="file" id="file">
+            </div>
+        </div>
+        
+        <div class="form_container applyBtn">
+            <button>Apply Now</button>
+        </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,319 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Courier New", Courier, monospace;
+      }
+      a,
+      li {
+        text-decoration: none;
+        list-style: none;
+      }
+      .container {
+        width: 1280px;
+        margin: 0 auto;
+      }
+      header {
+        padding: 30px 0;
+        max-width: 1280px;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #344c36;
+        border-radius: 50px;
+        padding: 18px;
+      }
+      .nav-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .nav-links a {
+        color: #fff;
+      }
+      .logo {
+        color: #fff;
+        font-size: larger;
+      }
+      .contactBtn > button {
+        padding: 10px 20px;
+        background: #fff;
+        border-radius: 20px;
+        color: #344c36;
+        font-weight: bold;
+        border: none;
+      }
+
+      .hero-section {
+        display: flex;
+        justify-content: center;
+      }
+      .left-container,
+      .right-container {
+        padding: 100px 0;
+      }
+      .left-container {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .left-container h2 {
+        line-height: 2.5rem;
+        font-size: 30px;
+      }
+      .left-container p {
+        font-size: 18px;
+      }
+      .left-container .ctaBtn {
+        display: flex;
+        gap: 20px;
+      }
+      .primary_button {
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: none;
+        color: #fff;
+        background-color: #344c36;
+      }
+      .viewMore {
+        display: flex;
+        background-color: #ffa600;
+        padding: 2px 40px 2px 2px;
+        border-radius: 20px;
+      }
+      .right-container {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .right-container img {
+        background-color: #e2e9e8;
+        width: 100%;
+        height: 300px;
+      }
+      .about_image{
+          transform: rotateY(180deg);
+      }
+      .marquee_banner {
+        margin: auto 0;
+        width: 100%;
+      }
+      .frontBox,.BackBox {
+        position: relative;
+      }
+      .frontBox {
+        background-color: #344c36;
+        height: 100px;
+        rotate: -1deg;
+        z-index: 0;
+      }
+      .BackBox {
+        background-color: #ffa600;
+        height: 100px;
+        margin-top: -100px;
+        z-index: 1;
+      }
+      .services_section {
+        padding: 100px 0;
+      }
+      .view_all_service {
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 0;
+      }
+      .view_all_service h2 {
+        font-size: 35px;
+      }
+      .services_grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+      }
+      .service_card:hover {
+        background-color: #344c36;
+        color: #fff;
+        width: 100%;
+
+      }
+      
+      .service_card {
+        width: 300px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 10px;
+        background-color: #e2e9e8;
+        transition: all 0.4s ease;
+      }
+      .link_btn {
+        padding: 8px 12px;
+        border: 2px solid #344c36;
+        border-radius: 50px;
+        color: #344c36;
+        font-weight: 700;
+        cursor: pointer;
+        background: transparent;
+        display: inline-block;
+        transition: all 0.4s ease;
+      }
+
+/* 2. Change the button ONLY when card is hovered */
+.service_card:hover .link_btn {
+  border: 2px solid #ffffff !important; /* Force white border */
+  color: #ffffff !important;            /* Force white text */
+}
+      
+      .about-section {
+        background-color: #344c36;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+      }
+      .about-section .left-container{
+        width: 60%;
+      }
+      .about-section .right-container{
+        width: 40%;
+      }
+      .about_flex {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 200px;
+      }
+      .my_tool_content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 100px 0;
+      }
+      .my_tool_content span {
+        color: #ffa600;
+      }
+      .tool_grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+        margin: 50px 0;
+      }
+      .tool_grid_box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+      }
+      .tool_grid_card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+        padding: 50px;
+        background-color: #e2e9e8;
+        border-radius: 10px;
+      }
+      .tool_grid_card img {
+        width: 200px;
+        height: 150px;
+      }
+      .education_section {
+        background-color: #344c36;
+        color: #fff;
+      }
+      .education_content {
+        padding: 100px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+      }
+      .education_grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+        margin: 50px 0;
+      }
+      .education_card{
+        background-color: #fff;
+        padding: 30px;
+        color: #344c36;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .education_card img{
+        width: 40px;
+        height: 40px;
+      }
+      .card_title{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 10px 20px;
+        border-bottom: 1px solid gray;
+      }
+      .skills {
+        text-align: left;
+        padding: 8px 15px;
+        border-left: 3px solid rgb(218, 218, 218) ;
+      }
+      .contact_section {
+        padding: 100px 0;
+        display: flex;
+        gap: 20px;
+      }
+      .contact_content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .contact_content img {
+        width: 30px;
+        height: 30px;
+      }
+      .call, .mail, .address{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 15px;
+      }
+      .col {
+        width: 50% ;
+        padding: 30px;
+      }
+      .contact_form .row {
+        display: flex;
+        gap: 20px;
+      }
+      .contact_form .row_child {
+        display: flex;
+        flex-direction: column;
+      }
+      .textarea {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .row_child input {
+        padding: 10px 20px;
+      }
+      footer {
+        background-color: #344c36;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0 ;
+      }
+      

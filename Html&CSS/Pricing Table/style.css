@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --white: #fff;
+  --black: #000;
+  --primary-color: #ff4b2b;
+  --secondary-color: #ff416c;
+  --website-color: #f2f2f2;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--website-color);
+}
+.pricing-section {
+  width: 100%;
+  background: var(--white);
+}
+.plans-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 50px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--black);
+  padding: 20px;
+  border-radius: 20px;
+  color: var(--white);
+}
+.plan-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+.plan-pricing {
+  font-size: 30px;
+  font-weight: 600;
+}
+.featured {
+  background: var(--primary-color);
+}
+.pricing-card:hover {
+  background: var(--primary-color);
+  transform: scale(1.05);
+}
+.pricing-card:hover .btn a {
+  background: var(--white);
+  color: var(--black);
+}
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 20px 0;
+}
+.features-list ul {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.btn {
+  bottom: 20px;
+  color: var(--white);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  margin-top: auto;
+}
+.btn a {
+  text-decoration: none;
+  color: var(--white);
+  text-transform: uppercase;
+  background: var(--primary-color);
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+.btn a:hover {
+  background: var(--white);
+  color: var(--black);
+}
+.btn .featured-btn {
+    background: var(--black);
+}
+.btn .featured-btn:hover {
+    background: var(--white);
+    color: var(--black);
+}
+.features-list li {
+  list-style: none;
+  color: var(--white);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  gap: 3px;
+  border-radius: 20px;
+}
+.add-on-services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background: var(--secondary-color);
+  padding: 50px;
+}
+.add-on-services h2 {
+  color: var(--white);
+  font-size: 30px;
+}
+.add-on-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.add-on-list li {
+  list-style: none;
+  color: var(--white);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  border: 2px solid var(--white);
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .plans-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .pricing-card {
+    text-align: center;
+  }
+  .features-list li {
+    justify-content: center;
+  }
+  .add-on-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

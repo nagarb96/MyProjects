@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myPractice Care Clause</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left_container">
+        <div class="sidebar">
+          <header>
+            <div class="logo_container">
+              <img
+                src="./image/my-Practice-Care-Logo-white.png"
+                alt="myPractice Care Logo"
+                class="logo"
+              />
+            </div>
+            <div class="header_content">
+              <h1>Agreement Builder</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </header>
+          <main>
+            <form action="">
+              <div class="field_container">
+                <label for="selectLogo">Upload Logo</label>
+                <input type="file" id="selectLogo" class="upload" />
+              </div>
+              <div class="field_container">
+                <label for="selectWatermark">WaterMark</label>
+                <input type="file" id="selectWatermark" class="upload" />
+              </div>
+              <div class="field_container">
+                <label for="agreement-title">Agreement Title</label>
+                <input type="text" id="agreement-title" class="upload" />
+              </div>
+              <div class="field_container">
+                <label for="agreement-date">Date</label>
+                <input type="date" id="agreement-date" class="upload" />
+              </div>
+              <div class="field_container">
+                <label for="covered-entity">Covered Entity</label>
+                <input type="text" id="covered-entity" class="upload" />
+              </div>
+              <div class="field_container">
+                <label for="covered-entity-address"
+                  >Covered Entity Address</label
+                >
+                <input type="text" id="covered-entity-address" class="upload" />
+              </div>
+              <div class="field_container">
+                <label for="business-associate">Business Associate</label>
+                <input type="text" id="business-associate" class="upload" />
+              </div>
+              <div class="field_container">
+                <label for="business-associate-address"
+                  >Business Associate Address</label
+                >
+                <input
+                  type="text"
+                  id="business-associate-address"
+                  class="upload"
+                />
+              </div>
+            </form>
+          </main>
+          <div class="Btn_funtionality">
+            <button onclick="addSimpleSection()">Add Simple Section</button>
+            <button onclick="printPDF()">Print / Save PDF</button>
+          </div>
+        </div>
+        </div>
+      <!-- Right side content -->
+      <div class="right_container">
+        <div class="a4-preview">
+          <div class="a4-page">
+          <img id="previewWatermark" src="./image/Watermark_mypractice_care.png" alt="Watermark" hidden>
+            <Header>
+            <img
+              id="previewLogo"
+              src="./image/my-Practice-Care-Logo.png"
+              alt="Logo"
+              class="preview-logo"
+            />
+            <h2 id="previewTitle">Agreement Title</h2>
+            <p>
+              <span id="previewTitle">Agreement Title </span> (“Agreement”) is
+              entered into as of <strong id="previewDate">May 14, 2026</strong>,
+              by and between:
+            </p>
+            <p>
+                Covered Entity:
+                <strong
+                  ><span id="previewCe">Dental Arts Rego Park</span></strong
+                >, located at
+                <strong
+                  ><span id="previewCeAddr"
+                    >61-55 98th Street, Apt 1L Rego Park, NY 11374</span
+                  ></strong
+                >
+              </p>
+              <p>
+                Business Associate:
+                <strong><span id="previewBa">myPractice Care,</span></strong
+                >, located at
+                <strong
+                  ><span id="previewBaAddr"
+                    >123 Main Street, Anytown, NY 12345</span
+                  ></strong>
+              </p>        
+              </Header>
+              <hr/>
+                
+              <!-- SECTIONS -->
+                <div class="sections" id="sectionsContainer">
+
+                
+            </div>
+                
+              </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

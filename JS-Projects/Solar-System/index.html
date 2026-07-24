@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="starfield"></canvas>
+    <div class="solar-system" id="system">
+      <div class="sun"></div>
+
+      <!-- Mercury -->
+      <div class="orbit mercury-orbit">
+        <div class="planet mercury"></div>
+        <span class="label">Mercury</span>
+      </div>
+      
+      <!-- Venus -->
+      <div class="orbit venus-orbit">
+        <div class="planet venus"></div>
+        <span class="label">Venus</span>
+      </div>
+      
+      <!-- Earth -->
+      <div class="orbit earth-orbit">
+        <div class="planet earth">
+          <div class="moon-orbit">
+            <div class="moon"></div>
+          </div>
+        </div>
+        <span class="label">Earth</span>
+      </div>
+      
+      <!-- Mars -->
+      <div class="orbit mars-orbit">
+        <div class="planet mars"></div>
+        <span class="label">Mars</span>
+      </div>
+      
+      <!-- Asteroid Belt -->
+      <div class="asteroid-belt">
+        <div class="asteroid a1"></div>
+        <div class="asteroid a2"></div>
+        <div class="asteroid a3"></div>
+        <div class="asteroid a4"></div>
+        <div class="asteroid a5"></div>
+        <div class="asteroid a6"></div>
+        <div class="asteroid a7"></div>
+        <div class="asteroid a8"></div>
+      </div>
+      
+      <!-- Jupiter -->
+      <div class="orbit jupiter-orbit">
+        <div class="planet jupiter"></div>
+        <span class="label">Jupiter</span>
+      </div>
+      
+      <!-- Saturn -->
+      <div class="orbit saturn-orbit">
+        <div class="planet saturn">
+          <div class="saturn-ring"></div>
+        </div>
+        <span class="label">Saturn</span>
+      </div>
+
+      <!-- Uranus -->
+      <div class="orbit uranus-orbit">
+        <div class="planet uranus"></div>
+        <span class="label">Uranus</span>
+      </div>
+
+      <!-- Neptune -->
+      <div class="orbit neptune-orbit">
+        <div class="planet neptune"></div>
+        <span class="label">Neptune</span>
+      </div>
+    </div>
+    <!-- Speed Control -->
+     <div id="speedLabel">ORBITAL SPEED</div>
+     <input type="range" id="speedControl" min="1" max="10000" value="5">
+    <script>
+        /* ── STARFIELD ── */
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const STAR_COUNT = 280;
+const stars = Array.from({ length: STAR_COUNT }, () => ({
+  x: Math.random() * window.innerWidth,
+  y: Math.random() * window.innerHeight,
+  r: Math.random() * 1.5 + 0.2,
+  alpha: Math.random() * 0.6 + 0.2,
+  twinkleSpeed: Math.random() * 0.02 + 0.005,
+  phase: Math.random() * Math.PI * 2,
+}));
+function drawStars(t) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  stars.forEach(s => {
+    const a = s.alpha + 0.3 * Math.sin(t * s.twinkleSpeed + s.phase);
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,255,255,${Math.max(0, Math.min(1, a))})`;
+    ctx.fill();
+  });
+}
+
+/* ── COMETS ── */
+const cometContainer = document.body;
+const MAX_COMETS = 4;
+let activeComets = 0;
+
+function spawnComet() {
+  if (activeComets >= MAX_COMETS) return;
+  activeComets++;
+
+  const comet = document.createElement('div');
+  comet.className = 'comet';
+
+  const head = document.createElement('div');
+  head.className = 'comet-head';
+
+  const tail = document.createElement('div');
+  tail.className = 'comet-tail';
+  const tailLen = 60 + Math.random() * 120;
+  tail.style.width = tailLen + 'px';
+
+  comet.appendChild(tail);
+  comet.appendChild(head);
+  cometContainer.appendChild(comet);
+
+  // Random starting position — always from the right or top-right back side
+  const startX = window.innerWidth + 50 + Math.random() * 200;
+  const startY = -50 + Math.random() * (window.innerHeight * 0.6);
+
+  // Direction: moving left-downward (classic back-side trajectory)
+  const angle = 150 + Math.random() * 40; // degrees, 150–190
+  const speed = 400 + Math.random() * 300; // px/s
+  const rad = angle * Math.PI / 180;
+  const dx = Math.cos(rad);
+  const dy = Math.sin(rad);
+
+  const dist = Math.sqrt(window.innerWidth ** 2 + window.innerHeight ** 2) * 1.4;
+  const duration = (dist / speed) * 1000;
+
+  const endX = startX + dx * dist;
+  const endY = startY + dy * dist;
+
+  // Rotate comet to match direction
+  comet.style.transform = `rotate(${angle}deg)`;
+  comet.style.left = startX + 'px';
+  comet.style.top = startY + 'px';
+
+  const start = performance.now();
+
+  function animateComet(now) {
+    const elapsed = now - start;
+    const progress = elapsed / duration;
+    if (progress >= 1) {
+      comet.remove();
+      activeComets--;
+      return;
+    }
+    const x = startX + dx * dist * progress;
+    const y = startY + dy * dist * progress;
+    comet.style.left = x + 'px';
+    comet.style.top = y + 'px';
+    // Fade out near end
+    comet.style.opacity = progress > 0.7 ? (1 - (progress - 0.7) / 0.3) : 1;
+    requestAnimationFrame(animateComet);
+  }
+  requestAnimationFrame(animateComet);
+}
+
+// Spawn comets periodically
+function scheduleComet() {
+  spawnComet();
+  const next = 2000 + Math.random() * 5000;
+  setTimeout(scheduleComet, next);
+}
+scheduleComet();
+
+/* ── SPEED CONTROL via Web Animations API playbackRate ── */
+// Selectors for every animated element
+const animatedSelectors = [
+  '.mercury-orbit', '.venus-orbit', '.earth-orbit', '.mars-orbit',
+  '.jupiter-orbit', '.saturn-orbit', '.uranus-orbit', '.neptune-orbit',
+  '.moon-orbit', '.asteroid-belt'
+];
+
+function getAllAnimations() {
+  const anims = [];
+  animatedSelectors.forEach(sel => {
+    const el = document.querySelector(sel);
+    if (el) el.getAnimations().forEach(a => anims.push(a));
+  });
+  return anims;
+}
+
+function applySpeed(val) {
+  // val 1–10; slider middle (5) = 1× speed
+  const rate = val / 5;
+  getAllAnimations().forEach(anim => {
+    anim.updatePlaybackRate(rate);
+  });
+}
+
+const slider = document.getElementById('speedControl');
+const label  = document.getElementById('speedLabel');
+
+slider.addEventListener('input', () => {
+  const v = parseFloat(slider.value);
+  applySpeed(v);
+  label.textContent = 'ORBITAL SPEED × ' + (v / 5).toFixed(1);
+});
+
+// Wait a tick for CSS animations to start, then set default rate
+requestAnimationFrame(() => requestAnimationFrame(() => applySpeed(5)));
+
+/* ── MAIN LOOP ── */
+let t = 0;
+function loop(ts) {
+  t = ts * 0.001;
+  drawStars(t);
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+
+    </script>
+     
+  </body>
+</html>

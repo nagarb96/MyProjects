@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse Counter</title>
+    <style>
+      * {
+        background: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+      }
+      .main {
+        width: 300px;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #ffffff;
+        border-radius: 10px;
+      }
+      h1 {
+        background-color: #c4c4c4;
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+        border-radius: 10px 10px 0 0;
+      }
+      .container {
+        background-color: #ffffff;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 10px;
+      }
+      #display {
+        width: 200px;
+        margin: auto;
+        padding: 10px;
+        font-size: 25px;
+        text-align: center;
+        background: #ccc;
+        transition: all 0.3s linear;
+      }
+      button {
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #000;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #000;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Reverse Counter</h1>
+
+      <div class="container">
+        <div id="display">0</div>
+
+        <button id="toggleBtn">Start</button>
+        <button id="reverseBtn">Reverse</button>
+      </div>
+    </div>
+
+    <script>
+      let display = document.getElementById("display");
+      let toggleBtn = document.getElementById("toggleBtn");
+      let reverseBtn = document.getElementById("reverseBtn");
+
+      let count = 0;
+      let interval;
+      let isRunning = false;
+      let direction = 1;
+      let maxLimit = 100;
+      let minLimit = 0;
+
+      function startCounter() {
+        if (interval) clearInterval(interval);
+
+        interval = setInterval(() => {
+          count = count + direction; //// direction change rule
+
+          // if( count >= maxLimit || count <= minLimit){
+          //     clearInterval(interval);
+          //     interval = null;
+          //     toggleBtn.textContent = "Start";
+          //     isRunning = false;
+          // }
+
+          if (count >= maxLimit) {
+            count = maxLimit;
+            direction = -1; // 🔥 reverse
+          }
+
+          if (count <= minLimit) {
+            count = minLimit;
+            direction = 1; // 🔥 forward
+          }
+
+          let color;
+          if (count < 30) color = "red";
+          else if (count < 70) color = "orange";
+          else color = "green";
+
+          display.textContent = count + "%";
+          display.style.background = `linear-gradient(to right, ${color} ${count}%,  #e9e9e9 ${count}%)`;
+        }, 200);
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        if (!isRunning) {
+          startCounter();
+          toggleBtn.textContent = "Stop";
+          isRunning = true;
+        } else {
+          clearInterval(interval);
+          interval = null;
+          toggleBtn.textContent = "Start";
+          isRunning = false;
+        }
+      });
+
+      reverseBtn.addEventListener("click", () => {
+        direction = direction * -1;
+      });
+    </script>
+  </body>
+</html>

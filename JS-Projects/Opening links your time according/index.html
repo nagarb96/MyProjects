@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Link opening</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 100px;
+      }
+      textarea {
+        width: 600px;
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <textarea
+        id="links"
+        rows="10"
+        cols="40"
+        placeholder="Paste links here (one per line)"
+      ></textarea>
+      <button onclick="openLinks()" id="StatBtn">Start</button>
+    </div>
+
+    <script>
+      function openLinks() {
+        const text = document.getElementById("links").value;
+
+        // Split by new line
+        const links = text.split("\n").filter((link) => link.trim() !== "");
+
+        links.forEach((link, index) => {
+          setTimeout(() => {
+            window.open(link.trim(), "_blank");
+          }, index * 5000); // 5 sec delay
+        });
+      }
+      let StatBtn = document.getElementById("StatBtn");
+      StatBtn.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          openLinks();
+        }
+      });
+      
+
+    </script>
+  </body>
+</html>

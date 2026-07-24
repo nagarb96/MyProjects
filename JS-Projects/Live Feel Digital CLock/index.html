@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Feel Digital Clock</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', Courier, monospace;
+            transition: 0.4s;
+            background: #101010;
+            color: #ffffff;
+        }
+        .clock-box {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 30px #000;
+            transition: 0.3s;
+            border-radius: 10px;
+        }
+        #time {
+            font-size: 60px;
+            margin: 5px 0;
+        }
+        #ampm {
+            font-size: 25px;
+            margin: 5px 0;
+            opacity: 0.8;
+        }
+        #day {
+            font-size: 28px;
+            margin-top: 10px;
+        }
+        #date {
+            font-size: 22px;
+            opacity: 0.8;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: #444;
+            color: #ffffff;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #666;
+        }
+        /* Light Theme */
+        .light {
+            background: #f3f3f3;
+            color: #111;
+        }
+        .light .clock-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px #aaa;
+        }
+        .light button {
+            background: #222;
+            color: #ffffff;
+        }
+        /* Blinking Colon */
+        .blink {
+            opacity: 0;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-box">
+    <h1 id="time">
+        <span id="h">00</span>
+        <span id="colon1">:</span>
+        <span id="m">00</span>
+        <span id="colon2">:</span>
+        <span id="s">00</span>
+    </h1>
+    <h3 id="ampm">AM</h3>
+    <h2 id="day">Monday</h2>
+    <h2 id="date">24 February 2025</h2>
+
+    <button id="themeBtn">Changet theme</button>
+    </div>
+    <script>
+        function updateClock() {
+            let now = new Date();
+
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            // AM PM
+            let ampm = hours >= 12 ? "PM" : "AM";
+
+            // Convert 12-Hour Format
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+
+            // Double digits using ternary
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            // print time in spans
+            document.getElementById("h").innerText = hours;
+            document.getElementById("m").innerText = minutes;
+            document.getElementById("s").innerText = seconds;
+
+            document.getElementById("ampm").innerText = ampm;
+
+            // days names
+            const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+            document.getElementById("day").innerText = days[now.getDay()];
+
+            // date text
+            const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+            let dateText = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+            
+            document.getElementById("date").innerText = dateText;
+
+            // Blink Logic
+            let colon1 = document.getElementById("colon1");
+            let colon2 = document.getElementById("colon2");
+
+            if (now.getSeconds() % 2 === 0) {
+                colon1.classList.add("blink");
+                colon2.classList.add("blink");
+            } else {
+                colon1.classList.remove("blink");
+                colon2.classList.remove("blink");
+                
+            }
+            
+            
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        let themeBtn = document.getElementById("themeBtn");
+
+        themeBtn.addEventListener("click", () => {
+        document.body.classList.toggle("light");
+        });
+    </script>
+
+</body>
+</html>
