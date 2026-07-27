@@ -4,6 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .todo-list{
+            background: rgb(194, 154, 154);
+            width: 400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            gap: 10px;
+        }
+        .todo-list input {
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+        }
+        .todo-list button {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgb(194, 154, 154);
+        }
+        .todo-list button:hover {
+            background-color: rgb(197, 131, 131);
+            border: 1px solid black;
+        } 
+    </style>
 </head>
 <body>
     <div class="todo-list">

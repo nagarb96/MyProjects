@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brijesh Nagar | Developer & Digital Marketer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <!-- Logo -->
+             <div class="logo">
+                <img src="./assets/logo/Brijesh  Portfolio Website.png" alt="Brijesh Logo">
+                <!-- <a href="index.html">Brijesh.</a> -->
+             </div>
+
+            <!-- Nav Links -->
+             <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact Us</a></li>
+             </ul>
+
+            <!-- CTA buttons -->
+             <div class="nav-cta">
+                <a href="tel:+917503981251" class="btn-primary">Hire me</a>
+             </div>
+             <div class="navbar-hamburger">
+            <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+        </div>
+        </div>
+        <div class="sidebar">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact Us</a></li>
+             </ul>
+        </div>
+    </nav>
+   
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo"><img src="./assets/logo/Brijesh  Portfolio Website.png" alt="Brijesh Logo"></div>
+                    <p>Full-Stack Developer & Digital Marketing Expert based in Delhi, India.</p>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/in/nagarb96" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/nagarb96" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Web Design & Development</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">Logo & Brand Design</a></li>
+                        <li><a href="#">Social Media Management</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>📍 Badarpur, Delhi, India</p>
+                    <p>📧 Nagarb96@gmail.com</p>
+                    <p>📞 +91 750-398-1251</p>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>© 2026 Brijesh Nagar. All Rights Reserved.</p>
+            </div>
+
+        </div>
+    </footer>
+    
+    <div class="go-to-top"><i class="fa-solid fa-arrow-up"></i></div>
+
+    <script>
+        // hamburger active query
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            const navLinks = document.querySelector('.sidebar');
+            if(navLinks.style.display === "flex") {
+                navLinks.style.display = 'none';
+            }
+            else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+            }
+        });
+
+        // Go to top button
+        const goToTop = document.querySelector('.go-to-top');
+
+        // Scroll detect — After 500px topr scroll
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 500) {
+                goToTop.classList.add('visible');
+            } else {
+                goToTop.classList.remove('visible');
+            }
+        });
+
+        // Click for smooth scroll top + hide
+        goToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0, behavior: 'smooth'
+            });
+        });
+
+    </script>
+</body>
+</html>
