@@ -21,7 +21,7 @@
     --font-main: 'Poppins', sans-serif;
     
     /* Font Sizes */
-    --text-sm: 0.875rem;    /* 14px */
+    --text-sm: 0.768rem;    /* 14px */
     --text-base: 1rem;      /* 16px */
     --text-md: 1.25rem;     /* 20px */
     --text-lg: 1.75rem;     /* 28px */
@@ -93,7 +93,7 @@
         font-size: 30px;
         color: var(--accent);
      }
-     .logo {
+     .logo a{
         width: 200px;
         height: 70px;
         overflow: hidden;
@@ -509,12 +509,12 @@
     /* Footer */
     .footer {
         background: var(--accent);
-        padding: 60px 0 0 0;
+        padding: 40px 0 0 0;
     }
     .footer-grid {
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 40px;
+        grid-template-columns: 2fr 1fr 1fr 2fr;
+        gap: 10px;
         padding-bottom: 40px;
         justify-content: start;
     }
@@ -1276,7 +1276,62 @@
   border: 2px solid var(--text-dark);
   text-align: center;
 }
-
+    @media only screen and (max-width: 768px) {
+        .navbar {
+            height: auto;
+        }
+        .hamburger{
+            display: flex;
+        }
+        .nav-links, .nav-cta{
+            display: none;
+        }
+        .hero-text p{
+            font-size: 13px
+        }
+        .hero-text h1 {
+            font-size: var(--text-lg);
+        }
+        .hero-image img {
+            width: 300px;
+            height: 450px;
+        }
+        .services-grid{
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .projects-grid{
+            grid-template-columns: repeat(2,1fr);
+        }
+        .footer-links {
+            font-size: var(--text-sm);
+        }
+        .pricing-section {
+            display: flex;
+        }
+        .pricing-section{
+            justify-content: center;
+        }
+        .plans-container{
+            grid-template-columns: repeat(1,1fr);
+            
+        }
+        .pricing-card {
+            width: 400px;
+            text-align: center;
+        }
+        .features-list li{
+            text-align: center;
+            justify-content: center;
+        }
+        .pricing-card .btn {
+            justify-content: center;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        .add-on-list {
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
 
     @media only screen and (max-width: 600px) {
         .navbar {
