@@ -68,11 +68,14 @@
 
             <!-- Right — Form -->
             <div class="contact-form">
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Your Email">
-                <input type="text" placeholder="Subject">
-                <textarea placeholder="Your Message"></textarea>
-                <button class="btn-primary">Send Message</button>
+                <form action="./assets/Database/process_form.php" method="post">
+                    <input type="text" placeholder="Your Name" name="name" required>
+                    <input type="email" placeholder="Your Email" name="email" required>
+                    <input type="phone" placeholder="Your Phone" name="phone" required>
+                    <input type="text" placeholder="Subject" name="subject" required>
+                    <textarea placeholder="Your Message" name="message" required></textarea>
+                    <button class="btn-primary" type="submit">Send Message</button>
+                </form>
             </div>
 
         </div>

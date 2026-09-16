@@ -1336,5 +1336,277 @@ console.log(completedTasks);
 let NotCompleted = tasks.filter(t => t.completed != true);
 console.log(NotCompleted);
 
+let age = 25;
+age = 30;
+console.log(age);
+
+const name = "Brijesh";
+name = "Nagar";
+console.log(name); // This will throw an error because 'name' is a constant and cannot be reassigned.
+
+let age = "25";
+console.log(typeof age);
+
+let age = "25";
+console.log(Number(age) + 5);
+
+let fruits = ["Apple", "Mango", "Banana"];
+console.log(fruits[1]);
+
+let a = "100";
+let b = 100;
+let c = true;
+console.log(typeof a); // string
+console.log(typeof b); // number
+console.log(typeof c); // boolean
 
 
+let age = "25";
+console.log(age + 5);
+console.log(Number(age) + 5);
+
+let price = "100";
+console.log(price + 20);
+console.log(Number(price) + 20);
+
+// lets print only name from the array of objects using map() method.
+let users = [
+  { name: "Brijesh", age: 30 },
+  { name: "Aman", age: 25 },
+  { name: "Rahul", age: 28 }
+];
+
+let allUsers = users.map(user => user.name);
+console.log(allUsers);
+
+// lets print all prices
+let products = [
+  { name: "Mobile", price: 15000 },
+  { name: "Laptop", price: 50000 },
+  { name: "Headphones", price: 2000 }
+];
+
+let allProductsPrice = products.map(product => product.price);
+console.log(allProductsPrice);
+
+let allProductsName = products.map(category => category.name);
+console.log(allProductsName);
+
+let maxRabgeProducts = products.filter(max => max.price >= 15000);
+console.log(maxRabgeProducts);
+
+// lets print greater than 20000 price products name
+let products = [
+  { name: "Mobile", price: 15000 },
+  { name: "Laptop", price: 50000 },
+  { name: "Headphones", price: 2000 },
+  { name: "Tablet", price: 25000 }
+];
+
+let maxPriceProductsName = products.filter(maxPrice => maxPrice.price > 20000).map(getHighPriceName => getHighPriceName.name);
+console.log(maxPriceProductsName);
+
+// lets calculate all products price 
+let cart = [
+  { name: "Mobile", price: 15000 },
+  { name: "Headphones", price: 2000 },
+  { name: "Mouse", price: 1000 }
+];
+
+let totalProductsPrice = cart.reduce((total , currentValue) => {
+  return total + currentValue.price;
+},0 );
+console.log(totalProductsPrice);
+
+// Using reduce() method to calculate total price of products in cart
+let cart = [
+  { name: "Phone", price: 20000 },
+  { name: "Mouse", price: 1000 },
+  { name: "Keyboard", price: 3000 }
+];
+
+let total = cart.reduce((total, product) => {
+  return total + product.price;
+}, 0);
+
+console.log(total);
+
+// let try to sort the numbers in ascending order using sort() method
+let numbers = [50, 10, 30, 20];
+let result = numbers.sort((x, y) => x - y);
+console.log(result);
+
+let products = [
+  { name: "Phone", price: 20000 },
+  { name: "Mouse", price: 1000 },
+  { name: "Keyboard", price: 3000 }
+];
+
+products.forEach(product => {
+  console.log(product.name);
+});
+
+let names = "Brijesh";
+
+function greet() {
+  let name ="nagar";
+  console.log(names);
+}
+
+greet();
+
+
+function createAccount() {
+    let balance = 1000;
+
+    return {
+        showBalance: function() {
+            console.log(`Your Account Balance is ${balance}`);
+        },
+
+        deposit: function(amount) {
+            if (amount <= 0) {
+                console.log("Invalid Amount");
+            } else {
+                balance += amount;
+            }
+        },
+
+        withdrawal: function(amount) {
+            if (amount <= 0) {
+                console.log("Invalid Amount");
+            } else if (balance < amount) {
+                console.log("Amount Insufficient");
+            } else {
+                balance -= amount;
+            }
+        }
+    };
+}
+
+const account = createAccount();
+
+account.deposit(-500);
+account.showBalance();
+
+account.withdrawal(-200);
+account.showBalance();
+
+
+// Fake Login System for practice Promise and Async/Await
+
+function login(username, password){
+  return new Promise((resolve,reject) => {
+    if(username === "Brijesh" && password === "1234") {
+      resolve("login successful");
+    }
+    else{
+      reject("Invalid username or password");
+    }
+  });
+}
+
+login("Brijesh","12345")
+.then((result) => {
+  console.log(result);
+})
+.catch((error) => {
+  console.log(error);
+})
+;
+
+function login(username, password){
+  
+    if(username === "Brijesh" && password === "1234") {
+       console.log("Login Succesful!");
+       return
+    }
+    else{
+      console.log("Invalid username or password");
+      return 
+    }
+  }
+  login("Brijesh", "12345");
+
+
+  fetch("https://jsonplaceholder.typicode.com/users")
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+  
+const apiKey = "cv_9vr_hsX2zzlndjaXrKRsueOTKeY5Tcqx";
+fetch("https://api.carvector.io/v1/vehicles/", {
+  headers: {Authorization:`Bearer ${apiKey}`
+  }
+})
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+      data.results.forEach((vehicle) => {
+      console.log(vehicle.make);
+      })
+    })
+    .catch((error) =>{
+        console.log(error);
+    })
+
+      const users = {name:"Brijesh"};
+console.log(typeof users);
+console.log(typeof JSON.stringify(users));
+
+
+
+
+  fetch("https://jsonplaceholder.typicode.com/users",{
+    method:"POST",
+    headers:{"content-type":"application/JSON"},
+      body:JSON.stringify({name:"Brijesh",email:"nagarb96@gmail.com"})
+  })
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+
+fetch("https://jsonplaceholder.typicode.com/users?username=Bret&id=1")
+.then((response) => {
+  console.log(response.status);
+  console.log(response.ok);
+
+  if(!response.ok) {
+    throw new Error(`HTTP Error: ${response.status}`);
+  }
+  return response.json();
+})
+.then((data) => {
+  console.log(data);
+})
+.catch((error) =>{
+  console.log(error.message);
+});
+
+
+
+const response = await fetch(...);
+
+console.log(response.status);
+console.log(response.ok);
+
+if (!response.ok) {
+    throw new Error(`HTTP Error: ${response.status}`);
+}
+
+const data = await response.json();
+
+console.log(data);
