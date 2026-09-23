@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Manager</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        .container{margin: 100px auto; min-width: 300px;max-width: 600px;display: flex; flex-direction: column;text-align: center; border-radius: 10px; border: 1px solid gray;}
+        .header{padding: 20px;background-color: rgb(146, 145, 145);border-radius: 9px 9px 0 0;} 
+         form button {padding: 10px 20px;}
+        .add-user{padding: 20px;border-top: 1px solid black;border-bottom: 1px solid black;}
+        .user-list{padding: 10px; width: 100%;}
+        .user-list h2{padding-bottom: 20px;}
+        .user-list table{width: 100%;}
+        .table-row td{padding: 5px 10px;}
+        .delete-btn{background-color: rgb(236, 202, 202); border: none;padding: 2px 5px;}
+        .delete-btn:hover{color: #ffffff;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>User Manager</h1>
+        </div>
+        <div class="add-user">
+            <form id="addUserForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <button type="submit">Add User</button>
+            </form>
+        </div>
+        <div class="user-list">
+            <h2>Users List</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    
+                </tbody>
+            </table>
+            <ul id="userList"></ul>
+        </div>
+    </div>
+    <script>
+        const tableBody = document.getElementById("userTableBody");
+        const apiUrl = "https://jsonplaceholder.typicode.com/users";
+        fetch(apiUrl)
+        .then((response)=> {
+            return response.json();
+        })
+        .then((users) => {
+            users.forEach((user) => {
+            tableBody.innerHTML += `
+                    <tr class="table-row">
+                        <td>${user.id}</td>
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td><button class="delete-btn" data-id="${user.id}">Delete</button></td>
+                    </tr>
+                    `;
+                    });
+                    
+                    const deleteButtons = document.querySelectorAll("button[data-id]");
+
+                    deleteButtons.forEach((button) => {
+                    button.addEventListener("click", async () => {
+                    
+                    const userId = button.dataset.id;
+
+                    const deleteUrl = `${apiUrl}/${userId}`;
+                    
+                    try{
+                        const response = await fetch(deleteUrl, {
+                            method:"DELETE"
+                        });
+                        if(!response.ok) {
+                            throw new Error(`HTTP Error: ${response.status}`);
+                        }
+                        console.log("User deleted: ", userId);
+                        button.closest("tr").remove();
+                    }
+                    catch(error) {
+                        console.log(error.message);
+                    }
+                });
+            });
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+            
+    </script>
+</body>
+</html>
