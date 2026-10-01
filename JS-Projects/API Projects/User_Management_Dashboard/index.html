@@ -93,6 +93,44 @@
                     }
                 });
             });
+            // add User in database API
+                const form = document.getElementById("addUserForm");
+                const nameInput = document.getElementById("name");
+                const emailInput = document.getElementById("email");
+                
+                form.addEventListener("submit", async function (event) {
+                    event.preventDefault();
+                    const newUser = {
+                        name:nameInput.value,
+                        email:emailInput.value
+                    }
+                    try{
+                        const addUser = await fetch(apiUrl, {
+                            method:"POST",
+                            headers:{"Content-Type": "application/json"},
+                            body: JSON.stringify(newUser)
+                        });
+                        if(!addUser.ok){
+                            throw new Error(`HTTP Error: ${addUser.status}`);
+                        }
+                        const data = await addUser.json();
+                        console.log(data);
+
+                        const tableBody = document.getElementById("userTableBody");
+                        tableBody.innerHTML += `
+                        <tr class="table-row">
+                        <td>${data.id}</td>
+                        <td>${data.name}</td>
+                        <td>${data.email}</td>
+                        <td><button class="delete-btn" data-id="${data.id}">Delete</button></td>
+                    </tr>
+                        `;
+                        
+                    }
+                    catch (error){
+                        console.log(error.message)
+                    }
+                });
         })
         .catch((error) => {
             console.log(error);

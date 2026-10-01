@@ -1610,3 +1610,139 @@ if (!response.ok) {
 const data = await response.json();
 
 console.log(data);
+
+form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const apiUrl = "https://jsonplaceholder.typicode.com/users";
+    try{
+      const addUser = await fetch(apiUrl, {
+        method:"POST",
+        header:{"conten-Type":"application/json"},
+        body:JSON.stringify(newUser);
+      })
+    }
+    catch{
+      console.log(error.message);
+    }
+    // yahan newUser banana hai
+
+    // yahan fetch POST karna hai
+
+});
+
+
+const numbers = [10, 20, 30, 40];
+
+const [first, ...remaining] = numbers;
+for(let i = 0; i < remaining.length; i++){
+  console.log(remaining[i]);
+}
+const product = {
+    name: "Laptop",
+    price: 50000,
+    brand: "Dell",
+    stock: 10
+};
+
+const {name,...moreDetails} = product;
+console.log(name,moreDetails);
+
+
+// function distraction
+
+function showNumbers(...values){
+  console.log(...values);
+}
+showNumbers(10,20,30,40,50);
+
+
+function add(...values){
+  console.log(values);
+}
+add(10,20,30);
+
+
+const user = {
+  name:"Brijesh"
+};
+
+
+console.log(user.address?.city??"NA");
+
+const age = 0;
+
+console.log(age ?? 18);
+console.log(age || 18);
+
+
+
+const numbers = [10,20,30,40,];
+
+for (const number of numbers) {
+  console.log(number);
+}
+
+const table = 2;
+
+for (let i = 1; i <= 10; i++) {
+    console.log(`${table} × ${i} = ${table * i}`);
+}
+
+for (let table = 2; table <= 4; table++) {
+
+    for (let i = 1; i <= 10; i++) {
+        console.log(`${table} × ${i} = ${table * i}`);
+    }
+
+    console.log("----------");
+}
+
+for (let i = 1; i <= 10; i++) {
+    let line = "";
+
+    for (let table = 2; table <= 4; table++) {
+        line += `${table} × ${i} = ${table * i}\t`;
+    }
+
+    console.log(line);
+}
+
+const tables = [2, 3, 4];
+
+for(const i of [1,2,3,4,5,6,7,8,9,10]) {
+  let line = "";
+  for(const table of tables){
+    line += `${table} * ${i} = ${table * i}\t`;
+  }
+  console.log(line)
+}
+
+
+
+const numbers = [
+  {name:"Brijesh",age:30,address:"Delhi"},
+  {name:"Ishika",age:22,address:"Faridabaad"},
+  {name:"Rahul",age:34,address:"Noida"}
+
+];
+
+for(const number of numbers){
+  console.log(number.name);
+}
+
+
+const user = {name: "Brijesh",age: 30, address: {city: "Delhi"}};
+
+for (const key in user) {
+    console.log(key);
+}
+
+const userss = [{name:"Brijesh",age:30,address:"Delhi"},
+  {name:"Ishika",age:22,address:"Faridabaad"},
+  {name:"Rahul",age:34,address:"Noida"}];
+
+  for(const key in userss){
+    console.log(userss[key].address);
+  }
+
+  

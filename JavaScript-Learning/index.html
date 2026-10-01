@@ -539,6 +539,20 @@
       </div>
 
       <!-- Add Before of the div end if you want same alignment -->
+      <div id="parent" style="background-color: #df4a44; padding: 20px;">
+        <button id="btn112">Click Me</button>
+      </div>
+      <script>
+          const parent = document.getElementById("parent");
+          const button112 = document.getElementById("btn112");
+
+          parent.addEventListener("click", (event) => {
+            console.log(event.target);
+            console.log(event.currentTarget);
+          });
+          
+      </script>
+
     </div>
   </body>
 </html>
