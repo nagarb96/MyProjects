@@ -538,7 +538,6 @@
         </script>
       </div>
 
-      <!-- Add Before of the div end if you want same alignment -->
       <div id="parent" style="background-color: #df4a44; padding: 20px;">
         <button id="btn112">Click Me</button>
       </div>
@@ -552,7 +551,42 @@
           });
           
       </script>
+      <div id="parent12" style="padding: 20px;background-color: #d5e408;">
+        <button id="btn12222">Click Me</button>
+      </div>
+      <script>
+        const btn1222 = document.getElementById("btn12222");
+        const parent122 = document.getElementById("parent12");
 
+        parent122.addEventListener("click", () => {
+          console.log("parent");
+        }, true);
+
+        btn1222.addEventListener("click", () => {
+          console.log("child");
+        });
+
+      </script>
+
+
+        <div class="ghar" style="background-color: #d5e408; padding: 10px;">
+
+          <div  style="background-color: #f58427; padding: 10px;""><button id="secondFloor">2nd Floor</button>2</div>
+          <div  style="background-color: #30bd43; padding: 10px;""><button id="firstFloor">1st Floor</button>1</div>
+          <div  style="background-color: #5689cc; padding: 10px;""><button id="onlyGroundFloor">Only Ground Floor</button>G</div>
+          
+        </div>
+
+        <script>
+          const ghar = document.querySelector(".ghar");
+          
+          ghar.addEventListener("click", (event) => {
+            console.log(event.target.class);
+          },true)
+        </script>
+
+
+      <!-- Add Before of the div end if you want same alignment -->
     </div>
   </body>
 </html>

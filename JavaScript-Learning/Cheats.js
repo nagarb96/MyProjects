@@ -1746,3 +1746,48 @@ const userss = [{name:"Brijesh",age:30,address:"Delhi"},
   }
 
   
+  const fruits = new Set(["apple", "banana", "mango", "apple"]);
+  console.log(fruits);
+
+  const fruite = new Set(["apple","banana","Lichi"]);
+  console.log(fruite.has("banana"));
+
+  const fruits = new Set(["apple", "banana", "mango"]);
+  console.log(fruits.delete("apple"));
+  console.log(fruits);
+
+  const names = ["Rahul", "Brijesh", "Aman", "Gaurav", "Brijesh"];
+  const uniqueName = new Set(names);
+  console.log(uniqueName.size);
+  for(const name of uniqueName){
+    
+    console.log(name);
+  }
+
+  const name = new Map();
+
+  name.set("name","Rahul");
+  name.set("age",30);
+  name.set("name","Brijesh");
+  name.set("age",29);
+
+  console.log(name.get("age"));
+
+  for(list of name){
+    console.log(list);
+  }
+
+
+  const subjects = new Map([["name","Brijesh"],["age",30],["address","Delhi"]]);
+  console.log(subjects.values());
+
+  for(const [key, value] of subjects){
+    console.log(key,value);
+  }
+
+  const results = [
+  { status: "fulfilled", value: 100 }, // Index 0
+  { status: "rejected", reason: "Error" } // Index 1
+];
+
+console.log(results[1].reason); 
