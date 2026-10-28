@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guess Game</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background-color: #3f547c;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 400px;
+            max-width: 100%;
+            padding: 35px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            background-color: #2e4268;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        form input,
+        button {
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        form input {
+            width: 100px;
+        }
+
+        form button {
+            background-color: #22ec76;
+            border: 1px solid #22ec76;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #newGame {
+            background-color: red;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #feedback {
+            min-height: 20px;
+            line-height: 1.5;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Guess the Number!</h1>
+
+        <p>I'm thinking of a number between 1-10.</p>
+
+        <h4>Make your guess!</h4>
+
+        <form id="guessForm">
+            <input
+                type="number"
+                id="number"
+                min="1"
+                max="10"
+                step="1"
+                placeholder="1-10"
+                required
+            >
+
+            <button type="submit" id="submit">Submit Guess</button>
+        </form>
+
+        <h2>Attempts: <span id="displayRound">0</span></h2>
+
+        <h2>Score: <span id="score">0</span></h2>
+
+        <button type="button" id="newGame">New Game</button>
+
+        <p id="feedback" aria-live="polite"></p>
+    </div>
+
+    <script>
+        const guessForm = document.getElementById("guessForm");
+        const guessNumber = document.getElementById("number");
+        const submitGuess = document.getElementById("submit");
+        const displayRound = document.getElementById("displayRound");
+        const score = document.getElementById("score");
+        const newGame = document.getElementById("newGame");
+        const feedback = document.getElementById("feedback");
+
+        let points = 0;
+        let round = 0;
+        let secretNumber;
+        let gameOver = false;
+
+        // Generate a random number between 1 and 10
+        function generateNumber() {
+            return Math.floor(Math.random() * 10) + 1;
+        }
+
+        secretNumber = generateNumber();
+
+        // Submit guess
+        guessForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            // Stop guesses after winning
+            if (gameOver) {
+                feedback.textContent = "Game over! Click New Game to play again.";
+                return;
+            }
+
+            const guess = Number(guessNumber.value);
+
+            // Validate input
+            if (
+                guessNumber.value.trim() === "" ||
+                !Number.isInteger(guess) ||
+                guess < 1 ||
+                guess > 10
+            ) {
+                feedback.textContent = "Please enter a whole number between 1 and 10.";
+                return;
+            }
+
+            // Count only valid guesses
+            round++;
+            displayRound.textContent = round;
+
+            if (guess === secretNumber) {
+                points++;
+                score.textContent = points;
+
+                feedback.textContent =
+                    `Correct! You guessed ${secretNumber} in ${round} attempt(s).`;
+
+                gameOver = true;
+                submitGuess.disabled = true;
+            } else if (guess > secretNumber) {
+                feedback.textContent = "Incorrect! Try a lower number.";
+            } else {
+                feedback.textContent = "Incorrect! Try a higher number.";
+            }
+
+            guessNumber.value = "";
+            guessNumber.focus();
+        });
+
+        // Start a new game
+        newGame.addEventListener("click", () => {
+            points = 0;
+            round = 0;
+            secretNumber = generateNumber();
+            gameOver = false;
+
+            displayRound.textContent = points;
+            displayRound.textContent = round;
+            score.textContent = points;
+
+            feedback.textContent = "";
+            guessNumber.value = "";
+            submitGuess.disabled = false;
+
+            guessNumber.focus();
+        });
+    </script>
+
+</body>
+</html>

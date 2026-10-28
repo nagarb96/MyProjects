@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        *{padding: 0;margin: 0;box-sizing: border-box;}
+        body{display: flex;flex-direction: column;justify-content: center;align-items: center;gap: 10px;}
+        .container{display: flex;gap: 20px; justify-content: center;align-items: center;margin-top: 100px;}
+        button{padding: 10px 20px;font-size: 30px;background-color:#2f8b58;color: #ffffff;border: none;border-radius: 10px;}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="decrease">-</button>
+        <h1 id="display">0</h1>
+        <button id="increase">+</button>
+    </div>
+    <button id="reset">Reset</button>
+    <script>
+        const decrease = document.getElementById("decrease");
+        const increase = document.getElementById("increase");
+        const display = document.getElementById("display");
+        const reset = document.getElementById("reset");
+
+        let count = 0;
+        increase.addEventListener("click", () => {
+             count++;
+            display.textContent = count;     
+        });
+        decrease.addEventListener("click", () => {
+             count--;
+            display.textContent = count;     
+        });
+        reset.addEventListener("click", () => {
+            count = 0;
+            display.textContent = count;
+        })
+        
+    </script>
+</body>
+</html>

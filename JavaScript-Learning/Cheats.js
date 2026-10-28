@@ -1791,3 +1791,40 @@ const userss = [{name:"Brijesh",age:30,address:"Delhi"},
 ];
 
 console.log(results[1].reason); 
+
+
+
+const users = [
+    { name: "Aman", age: 22 },
+    { name: "Priya", age: 17 },
+    { name: "Rahul", age: 25 },
+    { name: "Neha", age: 16 },
+    { name: "Karan", age: 30 }
+];
+
+const AdultUsers = users.filter((user) => {
+  return user.age >= 18;
+  
+});
+console.log(AdultUsers.map((user) => user.name));
+
+let age = 18;
+
+function checkAge(age) {
+  if(age >= 18){
+    return "You can vote.";
+  }
+  else{
+    return "You cannot vote.";
+  }
+}
+console.log(checkAge(age));
+
+
+        let secretNumber;
+        secretNumber = Math.floor(Math.random()*10) + 1;
+        console.log(secretNumber);
+
+        for (let i = 0; i < 10; i++) {
+    console.log(Math.floor(Math.random() * 10) + 1);
+}

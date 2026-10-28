@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        body{display: flex;justify-content: center;align-items: center;height: 100vh;}
+        .container{width: 400px; padding: 50px; height: auto;display: flex;flex-direction: column;align-items: center;gap: 10px;background-color: aliceblue;border-radius: 10px; justify-content: center;}
+        .container button{padding: 10px 20px; background-color: rgb(29, 133, 29); color: #ffffff; border: none;border-radius: 7px;}
+        #error{color: red;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Age Calculator</h2>
+        <input type="number" id="ageInput">
+        <button id="submit">Sumbit</button>
+        <p id="error"></p>
+        <p id="display"></p>
+    </div>
+    <script>
+        const ageInput = document.getElementById("ageInput");
+        const submit = document.getElementById("submit");
+        const display = document.getElementById("display");
+        const error = document.getElementById("error");
+
+        submit.addEventListener("click", () => {
+            let age = ageInput.value;
+            if(age === ""){
+                display.textContent = "";
+                error.textContent = "Please type the value in input field.";
+                ageInput.value = "";
+                ageInput.focus();
+            }
+            else if(age <= 0) {
+                display.textContent = "";
+                error.textContent = "Please enter a valid age";
+                ageInput.value = "";
+                ageInput.focus();
+            }
+            else if(age < 18){
+                error.textContent = "";
+                display.textContent = "Child";
+                ageInput.value = "";
+            }
+            else{
+                error.textContent = "";
+                display.textContent = "Adult";
+                ageInput.value = "";
+            }
+        })
+    </script>
+</body>
+</html>
