@@ -13,7 +13,10 @@
         .front-card{background-color: rgb(247, 232, 213);}
         .back-card{background-color: rgb(216, 245, 245);transform: rotateY(180deg);}
         .front-card, .back-card {position: absolute;width: 100%;height: 100%;backface-visibility:hidden;border-radius: 10px;}
-        .flip-container:hover .flip-card{transform: rotateY(180deg);}
+        
+        .flip-container .flip-card{transform: rotateY(0deg);}
+        .flip-container.flipped .flip-card{transform: rotateY(180deg);}
+        
         
         /* Login CSS */
         .login_card {display: flex; flex-direction: column; justify-content: center; gap: 20px; min-height: 480px; width: 350px;background-color: #fff;border-radius: 20px;padding: 20px;}
@@ -27,6 +30,9 @@
         #signupForm input {width: 100%;padding: 10px 15px;border: 2px solid #e0e0e0;border-radius: 10px;font-size: 16px;outline: none;}
         #signupForm input:focus { border-color: #ff0000; }
         #signupForm button {width: 100%;padding: 12px;background-color: #6c63ff;color: #fff;border: none;border-radius: 10px;cursor: pointer;}
+        .signupbtn button:hover {background-color: #5a52d4;}
+        #signupForm a {text-decoration: none;color: #333;font-size: 14px;}
+        #signupForm a span {color: #6c63ff;font-weight: bold;}
 
     </style>
 </head>
@@ -50,7 +56,7 @@
                 <div class="loginbtn">
                     <button>Login</button>
                 </div>
-                <a href="#">Don't have account <span>Sign Up</span></a>                     
+                <a href="#" id="signupLink">Don't have account <span>Sign Up</span></a>                     
             </div>
                 </div>
                 <div class="back-card">
@@ -78,11 +84,24 @@
                 <div class="signupbtn">
                     <button>Sign Up</button>
                 </div>
-                <a href="#">If You have already account <span>Login</span></a>
+                <a href="#" id="loginLink">If You have already account <span>Login</span></a>
                 </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        const flipContainer = document.querySelector('.flip-container');
+        const loginLink = document.querySelector('#loginForm');
+        const signupLink = document.querySelector('#signupForm');
+
+        loginLink.addEventListener('click', () => {
+            flipContainer.classList.add('flipped');
+        });
+
+        signupLink.addEventListener('click', () => {
+            flipContainer.classList.remove('flipped');
+        });
+    </script>
 </body>
 </html>

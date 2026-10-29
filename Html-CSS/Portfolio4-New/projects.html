@@ -47,294 +47,210 @@
         </div>
     </nav>
    
-<section class="projects-page-section">
-    <div class="container">
 
-        <!-- Page Heading -->
-        <div class="section-heading">
-            <h1>My Projects</h1>
-            <p>All my work in one place</p>
+    <!-- Project Categories Section -->
+    <section class="project-categories" id="project-categories">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="section-subtitle">MY WORK</span>
+                <h2>Explore My Projects</h2>
+                <p>Browse my projects by technology and explore what I've built.</p>
+            </div>
+
+            <div class="category-grid">
+
+                <!-- HTML & CSS -->
+                <a href="./html&cssprojects.html" class="category-card">
+                    <div class="category-icon html-css-icon">
+                        <i class="fa-brands fa-html5"></i>
+                        <i class="fa-brands fa-css3-alt"></i>
+                    </div>
+                    <h3>HTML & CSS Projects</h3>
+                    <p>Explore responsive websites, landing pages, forms, UI components and layout designs.</p>
+                    <span class="category-link">
+                        Explore Projects <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </a>
+
+                <!-- JavaScript -->
+                <a href="./javascriptprojects.html" class="category-card">
+                    <div class="category-icon javascript-icon">
+                        <i class="fa-brands fa-js"></i>
+                    </div>
+                    <h3>JavaScript Projects</h3>
+                    <p>Explore interactive applications, DOM projects, games and practical JavaScript exercises.</p>
+                    <span class="category-link">
+                        Explore Projects <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </a>
+
+                <!-- React
+                <a href="./reactprojects.html" class="category-card">
+                    <div class="category-icon react-icon">
+                        <i class="fa-brands fa-react"></i>
+                    </div>
+                    <h3>React Projects</h3>
+                    <p>Explore React applications, reusable components and modern frontend development projects.</p>
+                    <span class="category-link">
+                        Explore Projects <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </a> -->
+
+            </div>
+        </div>
+    </section>
+
+<!-- Featured Projects -->
+<section class="featured-work">
+    <div class="container">
+        <div class="work-heading">
+            <span class="work-eyebrow">SELECTED WORK</span>
+            <h2>Featured Projects</h2>
+            <p>A selection of projects showcasing my frontend development skills and practical experience.</p>
         </div>
 
-        <!-- Filter Buttons — Optional
-        <div class="project-filters">
-            <button class="filter-btn active">All</button>
-            <button class="filter-btn">HTML/CSS</button>
-            <button class="filter-btn">JavaScript</button>
-            <button class="filter-btn">PHP/MySQL</button>
-        </div> -->
+        <div class="featured-grid">
 
-        <!-- Projects Grid -->
-        <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/project1.png" alt="project1">
-                    </div>
-                    <div class="project-info">
-                        <h3>FoodHub</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quisquam similique soluta iste expedita amet repellat fuga illo nulla dolore!</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>Java</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
+            <article class="featured-card">
+                <div class="featured-image">
+                    <img src="./assets/images/project1.png" alt="FoodHub Website" loading="lazy">
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/project2.png" alt="project2">
+                <div class="featured-content">
+                    <span class="featured-type">Web Development</span>
+                    <h3>FoodHub Website</h3>
+                    <p>A food-focused web project built to practice website layouts, navigation, and application development.</p>
+                    <div class="featured-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>Java</span>
                     </div>
-                    <div class="project-info">
-                        <h3>Montessori Form</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quisquam similique soluta iste expedita amet repellat fuga illo nulla dolore!</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>PHP</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
+                    <a href="html-css-projects.html">Explore Project <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/Admin.png" alt="Admin Panel">
-                    </div>
-                    <div class="project-info">
-                        <h3>Admin Panel</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus asperiores architecto iusto doloremque possimus sunt perferendis quis nesciunt, ad sapiente.</p>
-                        <div class="project-tech">
-                            <span>PHP</span>
-                            <span>MySQL</span>
-                            <span>Bootstrap</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/Flip Login SignUp Page.png" alt="Admin Panel">
-                    </div>
-                    <div class="project-info">
-                        <h3>Flip Login SignUp Page</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus asperiores architecto iusto doloremque possimus sunt perferendis quis nesciunt, ad sapiente.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://nagarb96.github.io/MyProjects/Html-CSS/Flip-Login-SignUp-Page/" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/Job Application Form.png" alt="Admin Panel">
-                    </div>
-                    <div class="project-info">
-                        <h3>Job Application Form</h3>
-                        <p>A professional job application form with complete validation. Includes personal details, education, work experience, skills and document upload sections. Clean and user-friendly UI.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://nagarb96.github.io/MyProjects/Html-CSS/Job-Application-Form/" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/Ludo Board.png" alt="Admin Panel">
-                    </div>
-                    <div class="project-info">
-                        <h3>Ludo Board</h3>
-                        <p>Classic Ludo board game built with pure HTML and CSS. Fully designed game board with all 4 colored zones, player tokens and dice area layout.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://nagarb96.github.io/MyProjects/Html-CSS/ludo-Borad/" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/Parallax Website.png" alt="Admin Panel">
-                    </div>
-                    <div class="project-info">
-                        <h3>Parallax Website</h3>
-                        <p>A visually stunning website with smooth parallax scrolling effect. Multiple layered backgrounds move at different speeds creating an immersive 3D depth experience.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://nagarb96.github.io/MyProjects/Html-CSS/Parallax-Website/" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/Portfolio Website v1.png" alt="Admin Panel">
-                    </div>
-                    <div class="project-info">
-                        <h3>Portfolio Website v1</h3>
-                        <p>My first portfolio website focused on layout practice. Clean grid and flexbox based design with navbar, hero, skills and contact sections.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://nagarb96.github.io/MyProjects/Html-CSS/Portfolio1/" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/Portfolio Website v2.png" alt="Admin Panel">
-                    </div>
-                    <div class="project-info">
-                        <h3>Portfolio Website v2</h3>
-                        <p>Second iteration of my portfolio with improved UI design, better typography, color scheme and section animations.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://nagarb96.github.io/MyProjects/Html-CSS/Portfolio2/" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/Portfolio Website v3.png" alt="Admin Panel">
-                    </div>
-                    <div class="project-info">
-                        <h3>Portfolio Website v3</h3>
-                        <p>Third version of my portfolio with advanced CSS techniques, custom variables, responsive design and professional layout.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://nagarb96.github.io/MyProjects/Html-CSS/Portfolio3/" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/Pricing Table.png" alt="Admin Panel">
-                    </div>
-                    <div class="project-info">
-                        <h3>Digital Marketing Pricing Table</h3>
-                        <p>Professional 3-tier pricing table for digital marketing services. Includes Basic, Pro and Premium plans with featured card highlight, add-on services section and hover animations.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://nagarb96.github.io/MyProjects/Html-CSS/Pricing-Table/" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/Profile Card.png" alt="Admin Panel">
-                    </div>
-                    <div class="project-info">
-                        <h3>Profile Card</h3>
-                        <p>Elegant social profile card with custom image clipping, overflow hidden technique, social media icons with hover effects and smooth animations.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://nagarb96.github.io/MyProjects/Html-CSS/Profile-Card/" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/Restaurant Website.png" alt="Admin Panel">
-                    </div>
-                    <div class="project-info">
-                        <h3>Restaurant Website</h3>
-                        <p>Full featured restaurant landing page with sticky navbar, hero section with overlay, about section, why choose us cards, special dishes gallery, testimonials and multi-column footer. Fully responsive.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://nagarb96.github.io/MyProjects/Html-CSS/Resturant-Website1/" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/Survey Form.png" alt="Admin Panel">
-                    </div>
-                    <div class="project-info">
-                        <h3>Survey Form</h3>
-                        <p>Clean and professional survey form with multiple input types including text, email, radio buttons, checkboxes, dropdown select and textarea. Real-time validation included.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://nagarb96.github.io/MyProjects/Html-CSS/Survey-Form/" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="./assets/images/Tribute Websites.png" alt="Admin Panel">
-                    </div>
-                    <div class="project-info">
-                        <h3>Tribute Websites</h3>
-                        <p>A heartfelt tribute page dedicated to an inspirational personality. Features a hero image, biography timeline, key achievements and memorable quotes section.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://nagarb96.github.io/MyProjects/Html-CSS/Tribute-Websites-APJ-Abdul-kalaam/" class="btn-primary">Live Demo</a>
-                            <a href="#" class="btn-secondary">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                
+            </article>
 
+            <article class="featured-card">
+                <div class="featured-image">
+                    <img src="./assets/images/Number-Guessing-Game.png" alt="Number Guessing Game" loading="lazy">
+                </div>
+                <div class="featured-content">
+                    <span class="featured-type">JavaScript Mini App</span>
+                    <h3>Number Guessing Game</h3>
+                    <p>An interactive number guessing game featuring random numbers, attempts tracking, hints, and restart functionality.</p>
+                    <div class="featured-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <a href="javascript-projects.html">Explore Project <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="featured-card">
+                <div class="featured-image">
+                    <img src="./assets/images/Admin.png" alt="Admin Panel" loading="lazy">
+                </div>
+                <div class="featured-content">
+                    <span class="featured-type">Web Application</span>
+                    <h3>Admin Panel</h3>
+                    <p>A web-based administration interface developed to practice dashboard layouts and database-driven application features.</p>
+                    <div class="featured-tags">
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                        <span>HTML</span>
+                    </div>
+                    <a href="html-css-projects.html">Explore Project <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
 
         </div>
     </div>
 </section>
 
+<!-- Responsive Design Showcase -->
+<section class="responsive-showcase">
+    <div class="container">
+        <div class="responsive-layout">
+
+            <div class="responsive-content">
+                <span class="work-eyebrow">DESIGNED FOR EVERY SCREEN</span>
+                <h2>Responsive Design Showcase</h2>
+                <p>
+                    I build and refine web interfaces that adapt to
+                    different screen sizes, focusing on usability,
+                    readable typography, flexible layouts, and
+                    consistent spacing.
+                </p>
+
+                <div class="responsive-features">
+                    <div><i class="fa-solid fa-mobile-screen-button"></i> Mobile-Friendly Layouts</div>
+                    <div><i class="fa-solid fa-tablet-screen-button"></i> Tablet Optimization</div>
+                    <div><i class="fa-solid fa-desktop"></i> Desktop Experiences</div>
+                    <div><i class="fa-solid fa-code"></i> CSS Media Queries</div>
+                </div>
+
+                <a href="html-css-projects.html" class="showcase-button">
+                    View Responsive Projects
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="responsive-preview">
+                <div class="device desktop-device">
+                    <div class="device-top"></div>
+                    <img src="./assets/images/Coffee-Website.png"
+                         alt="Responsive website desktop preview"
+                         loading="lazy">
+                </div>
+
+                <div class="device mobile-device">
+                    <div class="mobile-notch"></div>
+                    <img src="./assets/images/Coffee-Website-Mobile.png"
+                         alt="Responsive website mobile preview"
+                         loading="lazy">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- GitHub CTA -->
+<section class="github-showcase">
+    <div class="container">
+        <div class="github-content">
+            <div class="github-symbol">
+                <i class="fa-brands fa-github"></i>
+            </div>
+
+            <span class="work-eyebrow">EXPLORE THE CODE</span>
+            <h2>Want to See How I Build?</h2>
+            <p>
+                Explore my GitHub repositories to view source code,
+                JavaScript practice projects, frontend layouts,
+                and ongoing development work.
+            </p>
+
+            <div class="github-actions">
+                <a href="https://github.com/nagarb96"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="github-main-button">
+                    <i class="fa-brands fa-github"></i>
+                    Visit My GitHub
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+                <a href="https://github.com/nagarb96/MyProjects"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="github-outline-button">
+                    Browse My Projects
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
 
     <footer class="footer">
